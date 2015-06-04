@@ -1,0 +1,35 @@
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Properties.Resources.resources
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Facturacion.resources
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Principal.resources
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Proveedor.resources
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Acceso.resources
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Anular_Factura.resources
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Categoria.resources
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Producto.resources
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Usuario.resources
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\bin\Debug\Facturacion.exe
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\bin\Debug\Facturacion.pdb
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Cliente.resources
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.exe
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.pdb
+C:\Users\usuario\Desktop\4to ciclo\programacion\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Compras.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.exe
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.pdb
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\bin\Debug\Facturacion.exe
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\bin\Debug\Facturacion.pdb
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Properties.Resources.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Acceso.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Anular_Factura.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Categoria.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Cliente.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Compras.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Facturacion.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Principal.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Producto.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Proveedor.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Usuario.resources
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.csproj.GenerateResource.Cache
+C:\Users\estefania\Desktop\ANDREA\cuarto\analisis\jorge\Facturacion\Facturacion\obj\x86\Debug\Facturacion.csprojResolveAssemblyReference.cache

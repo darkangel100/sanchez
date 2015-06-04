@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18754175-6B2F-4487-90AA-BBEDED449CCC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Facturacion</RootNamespace>
+    <AssemblyName>Facturacion</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\SF Acceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Acceso.Designer.cs">
+      <DependentUpon>SF Acceso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Anular Factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Anular Factura.Designer.cs">
+      <DependentUpon>SF Anular Factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Categoria.Designer.cs">
+      <DependentUpon>SF Categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Cliente.Designer.cs">
+      <DependentUpon>SF Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Compras.Designer.cs">
+      <DependentUpon>SF Compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Facturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Facturacion.Designer.cs">
+      <DependentUpon>SF Facturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Principal.Designer.cs">
+      <DependentUpon>SF Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Producto.Designer.cs">
+      <DependentUpon>SF Producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Proveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Proveedor.Designer.cs">
+      <DependentUpon>SF Proveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Usuario.Designer.cs">
+      <DependentUpon>SF Usuario.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Vista\SF Acceso.resx">
+      <DependentUpon>SF Acceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Anular Factura.resx">
+      <DependentUpon>SF Anular Factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Categoria.resx">
+      <DependentUpon>SF Categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Cliente.resx">
+      <DependentUpon>SF Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Compras.resx">
+      <DependentUpon>SF Compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Facturacion.resx">
+      <DependentUpon>SF Facturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Principal.resx">
+      <DependentUpon>SF Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Producto.resx">
+      <DependentUpon>SF Producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Proveedor.resx">
+      <DependentUpon>SF Proveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Usuario.resx">
+      <DependentUpon>SF Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controlador\" />
+    <Folder Include="Modelo\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
