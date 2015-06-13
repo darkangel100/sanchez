@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.txtnomcat = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,16 +45,20 @@
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbn_pasvcateg = new System.Windows.Forms.RadioButton();
+            this.rbn_actcateg = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox19
+            // txtnomcat
             // 
-            this.textBox19.Location = new System.Drawing.Point(111, 13);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(100, 20);
-            this.textBox19.TabIndex = 62;
+            this.txtnomcat.Location = new System.Drawing.Point(111, 13);
+            this.txtnomcat.Name = "txtnomcat";
+            this.txtnomcat.Size = new System.Drawing.Size(100, 20);
+            this.txtnomcat.TabIndex = 62;
             // 
             // dataGridView1
             // 
@@ -154,7 +158,7 @@
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(108, 44);
+            this.button17.Location = new System.Drawing.Point(99, 132);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(75, 23);
             this.button17.TabIndex = 65;
@@ -163,12 +167,13 @@
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(15, 44);
+            this.button18.Location = new System.Drawing.Point(3, 132);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(75, 23);
             this.button18.TabIndex = 63;
             this.button18.Text = "Guardar";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // label29
             // 
@@ -179,12 +184,49 @@
             this.label29.TabIndex = 61;
             this.label29.Text = "Nombre categoría";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbn_pasvcateg);
+            this.groupBox1.Controls.Add(this.rbn_actcateg);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(36, 44);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(134, 66);
+            this.groupBox1.TabIndex = 71;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Estado:";
+            // 
+            // rbn_pasvcateg
+            // 
+            this.rbn_pasvcateg.AutoSize = true;
+            this.rbn_pasvcateg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbn_pasvcateg.Location = new System.Drawing.Point(34, 43);
+            this.rbn_pasvcateg.Name = "rbn_pasvcateg";
+            this.rbn_pasvcateg.Size = new System.Drawing.Size(57, 17);
+            this.rbn_pasvcateg.TabIndex = 1;
+            this.rbn_pasvcateg.TabStop = true;
+            this.rbn_pasvcateg.Text = "Pasivo";
+            this.rbn_pasvcateg.UseVisualStyleBackColor = true;
+            // 
+            // rbn_actcateg
+            // 
+            this.rbn_actcateg.AutoSize = true;
+            this.rbn_actcateg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbn_actcateg.Location = new System.Drawing.Point(34, 19);
+            this.rbn_actcateg.Name = "rbn_actcateg";
+            this.rbn_actcateg.Size = new System.Drawing.Size(55, 17);
+            this.rbn_actcateg.TabIndex = 0;
+            this.rbn_actcateg.TabStop = true;
+            this.rbn_actcateg.Text = "Activo";
+            this.rbn_actcateg.UseVisualStyleBackColor = true;
+            // 
             // SF_Categoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 351);
-            this.Controls.Add(this.textBox19);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtnomcat);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button14);
@@ -196,8 +238,11 @@
             this.Controls.Add(this.label29);
             this.Name = "SF_Categoria";
             this.Text = "SF_Categoria";
+            this.Load += new System.EventHandler(this.SF_Categoria_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +250,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox txtnomcat;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
@@ -222,5 +267,8 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbn_pasvcateg;
+        private System.Windows.Forms.RadioButton rbn_actcateg;
     }
 }
