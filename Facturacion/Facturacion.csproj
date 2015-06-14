@@ -52,7 +52,10 @@
   <ItemGroup>
     <Compile Include="conexion.cs" />
     <Compile Include="Controlador\categoriaBD.cs" />
+    <Compile Include="Controlador\ClienteDB.cs" />
     <Compile Include="Modelo\Categoria.cs" />
+    <Compile Include="Modelo\Cuenta.cs" />
+    <Compile Include="Modelo\Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\SF Acceso.cs">
