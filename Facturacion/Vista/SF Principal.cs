@@ -18,9 +18,9 @@ namespace Facturacion.Vista
 
         private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SF_Usuario sfusu = new SF_Usuario();
-            sfusu.MdiParent = this;
-            sfusu.Show();
+            SF_Cuenta sfcuent = new SF_Cuenta();
+            sfcuent.MdiParent = this;
+            sfcuent.Show();
         }
 
         private void personaToolStripMenuItem_Click(object sender, EventArgs e)

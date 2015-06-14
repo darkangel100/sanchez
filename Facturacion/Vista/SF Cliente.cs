@@ -12,12 +12,13 @@ namespace Facturacion.Vista
 {
     public partial class SF_Cliente : Form
     {
+        int fila = -1;
+        string estado = "";
         public SF_Cliente()
         {
             InitializeComponent();
         }
-        string estado = "";
-        int fila = -1;
+
         private void button23_Click(object sender, EventArgs e)
         {
             Adiciona();
@@ -70,18 +71,15 @@ namespace Facturacion.Vista
                  {
                      MessageBox.Show("No existen Clientes registrados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                  }
-                 else
+                 fila = 0;
+                 for (int i = 0; i < objC.getPersona().ListaPersonas.Count; i++)
                  {
-                     fila = 0;
-                     for (int i = 0; i < objC.getPersona().ListaPersonas.Count; i++)
-                     {
-                         dgcliente.Rows.Add(1);
-                         dgcliente.Rows[i].Cells[0].Value = objC.getPersona().ListaPersonas[i].cedper;
-                         dgcliente.Rows[i].Cells[1].Value = objC.getPersona().ListaPersonas[i].nomper;
-                         dgcliente.Rows[i].Cells[2].Value = objC.getPersona().ListaPersonas[i].apeper;
-                         dgcliente.Rows[i].Cells[3].Value = objC.getPersona().ListaPersonas[i].dirper;
-                         dgcliente.Rows[i].Cells[4].Value = objC.getPersona().ListaPersonas[i].telper;
-                     }
+                     dgcliente.Rows.Add(1);
+                     dgcliente.Rows[i].Cells[0].Value = objC.getPersona().ListaPersonas[i].cedper;
+                     dgcliente.Rows[i].Cells[1].Value = objC.getPersona().ListaPersonas[i].nomper;
+                     dgcliente.Rows[i].Cells[2].Value = objC.getPersona().ListaPersonas[i].apeper;
+                     dgcliente.Rows[i].Cells[3].Value = objC.getPersona().ListaPersonas[i].dirper;
+                     dgcliente.Rows[i].Cells[4].Value = objC.getPersona().ListaPersonas[i].telper;
                  }
              }
              catch (Exception ex)

@@ -65,6 +65,6 @@ C:\Users\usuario\Desktop\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista
 C:\Users\usuario\Desktop\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Principal.resources
 C:\Users\usuario\Desktop\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Producto.resources
 C:\Users\usuario\Desktop\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Proveedor.resources
-C:\Users\usuario\Desktop\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Usuario.resources
 C:\Users\usuario\Desktop\Facturacion\Facturacion\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\usuario\Desktop\Facturacion\Facturacion\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\usuario\Desktop\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Cuenta.resources
