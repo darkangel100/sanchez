@@ -50,6 +50,7 @@
             this.btndesactiva = new System.Windows.Forms.Button();
             this.chkeliminados = new System.Windows.Forms.CheckBox();
             this.btnactivar = new System.Windows.Forms.Button();
+            this.btnnuevo = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcli)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +69,7 @@
             this.groupBox2.Controls.Add(this.txtnom);
             this.groupBox2.Controls.Add(this.label35);
             this.groupBox2.Controls.Add(this.label36);
+            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(12, 20);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(545, 161);
@@ -80,28 +82,28 @@
             this.msktelf.Location = new System.Drawing.Point(339, 59);
             this.msktelf.Name = "msktelf";
             this.msktelf.Size = new System.Drawing.Size(100, 20);
-            this.msktelf.TabIndex = 34;
+            this.msktelf.TabIndex = 4;
             // 
             // mskcedula
             // 
             this.mskcedula.Location = new System.Drawing.Point(91, 22);
             this.mskcedula.Name = "mskcedula";
             this.mskcedula.Size = new System.Drawing.Size(100, 20);
-            this.mskcedula.TabIndex = 33;
+            this.mskcedula.TabIndex = 0;
             // 
             // txtdir
             // 
             this.txtdir.Location = new System.Drawing.Point(339, 18);
             this.txtdir.Name = "txtdir";
             this.txtdir.Size = new System.Drawing.Size(173, 20);
-            this.txtdir.TabIndex = 30;
+            this.txtdir.TabIndex = 3;
             // 
             // txtape
             // 
             this.txtape.Location = new System.Drawing.Point(91, 104);
             this.txtape.Name = "txtape";
             this.txtape.Size = new System.Drawing.Size(145, 20);
-            this.txtape.TabIndex = 29;
+            this.txtape.TabIndex = 2;
             // 
             // button21
             // 
@@ -118,7 +120,7 @@
             this.button23.Location = new System.Drawing.Point(358, 131);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(75, 23);
-            this.button23.TabIndex = 26;
+            this.button23.TabIndex = 5;
             this.button23.Text = "Guardar";
             this.button23.UseVisualStyleBackColor = true;
             this.button23.Click += new System.EventHandler(this.button23_Click);
@@ -155,7 +157,7 @@
             this.txtnom.Location = new System.Drawing.Point(91, 63);
             this.txtnom.Name = "txtnom";
             this.txtnom.Size = new System.Drawing.Size(145, 20);
-            this.txtnom.TabIndex = 22;
+            this.txtnom.TabIndex = 1;
             // 
             // label35
             // 
@@ -260,11 +262,22 @@
             this.btnactivar.Visible = false;
             this.btnactivar.Click += new System.EventHandler(this.btnactivar_Click);
             // 
+            // btnnuevo
+            // 
+            this.btnnuevo.Location = new System.Drawing.Point(250, 491);
+            this.btnnuevo.Name = "btnnuevo";
+            this.btnnuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnnuevo.TabIndex = 55;
+            this.btnnuevo.Text = "Nuevo";
+            this.btnnuevo.UseVisualStyleBackColor = true;
+            this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
+            // 
             // SF_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 533);
+            this.Controls.Add(this.btnnuevo);
             this.Controls.Add(this.btnactivar);
             this.Controls.Add(this.chkeliminados);
             this.Controls.Add(this.btndesactiva);
@@ -306,6 +319,7 @@
         private System.Windows.Forms.Button btndesactiva;
         private System.Windows.Forms.CheckBox chkeliminados;
         private System.Windows.Forms.Button btnactivar;
+        private System.Windows.Forms.Button btnnuevo;
 
     }
 }
