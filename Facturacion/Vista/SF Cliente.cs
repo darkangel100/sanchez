@@ -21,8 +21,16 @@ namespace Facturacion.Vista
         int fila = -1;
         private void button23_Click(object sender, EventArgs e)
         {
-            Adiciona();
+            if (estado =="N")
+            {
+                Adiciona();
+            }
+            if (estado=="E")
+            {
+                Editar();
+            }
             llenaClientes("A");
+            groupBox2.Enabled = false;
             Util.limpiar(groupBox2.Controls);
         }
         
@@ -86,6 +94,30 @@ namespace Facturacion.Vista
             catch (Exception ex)
             {
                 MessageBox.Show("Error Al Presentar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Editar()
+        {
+            try
+            {
+                ClienteDB objC = new ClienteDB();
+                int resp;
+                llenaCliente(objC);
+                resp = objC.ActualizaCliente(objC.getPersona());
+                if (resp == 0)
+                {
+                    MessageBox.Show("No se modifico datos del Cliente", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Cliente Modificado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    estado = "";
+                    llenaClientes("A");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Ingresar Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
          private void SF_Cliente_Load(object sender, EventArgs e)
@@ -188,6 +220,7 @@ namespace Facturacion.Vista
 
          private void button22_Click(object sender, EventArgs e)
          {
+             groupBox2.Enabled = true;
              modificar();
          }
          private void modificar()
@@ -209,7 +242,8 @@ namespace Facturacion.Vista
                      msktelf.Text = objC.getPersona().telper;
                      mskcedula.Enabled = false;
                      estado = "E";
-                     mskcedula.Focus();
+                     txtnom.Focus();
+                   
                  }
              }
              catch (Exception ex)
@@ -221,6 +255,15 @@ namespace Facturacion.Vista
          private void button21_Click(object sender, EventArgs e)
          {
              Util.limpiar(groupBox2.Controls);
+         }
+
+         private void btnnuevo_Click(object sender, EventArgs e)
+         {
+             estado = "N";
+             Util.limpiar(groupBox2.Controls);
+             groupBox2.Enabled = true;
+             mskcedula.Enabled = true;
+             mskcedula.Focus();
          }
     }
 }
