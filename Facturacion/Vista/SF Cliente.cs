@@ -29,7 +29,7 @@ namespace Facturacion.Vista
             {
                 Editar();
             }
-            llenaClientes("A");
+            llenaPersona("A");
             groupBox2.Enabled = false;
             Util.limpiar(groupBox2.Controls);
         }
@@ -67,7 +67,7 @@ namespace Facturacion.Vista
             lec.getPersona().estper = "A";
             return lec;
         }
-        public void llenaClientes(string est)
+        public void llenaPersona(string est)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace Facturacion.Vista
                 objC.getPersona().ListaPersonas = objC.TraeClientes(est);
                 if (objC.getPersona().ListaPersonas.Count == 0)
                 {
-                    MessageBox.Show("No existen Clientes registrados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No existen Clientes desactivados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
@@ -88,6 +88,7 @@ namespace Facturacion.Vista
                         dgvcli.Rows[i].Cells[1].Value = objC.getPersona().ListaPersonas[i].Nombre;
                         dgvcli.Rows[i].Cells[2].Value = objC.getPersona().ListaPersonas[i].dirper;
                         dgvcli.Rows[i].Cells[3].Value = objC.getPersona().ListaPersonas[i].telper;
+                        dgvcli.Rows[i].Cells[4].Value = objC.getPersona().ListaPersonas[i].estper;
                     }
                 }
             }
@@ -112,7 +113,7 @@ namespace Facturacion.Vista
                 {
                     MessageBox.Show("Cliente Modificado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     estado = "";
-                    llenaClientes("A");
+                    llenaPersona("A");
                 }
             }
             catch (Exception ex)
@@ -122,7 +123,7 @@ namespace Facturacion.Vista
         }
          private void SF_Cliente_Load(object sender, EventArgs e)
          {
-             llenaClientes("A");
+             llenaPersona("A");
          }
 
          private void btndesactiva_Click(object sender, EventArgs e)
@@ -142,12 +143,12 @@ namespace Facturacion.Vista
                      resp = objB.DesactivarCliente(ced);
                      if (resp > 0)
                      {
-                         MessageBox.Show("Cliente Eliminado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                         llenaClientes("A");
+                         MessageBox.Show("Cliente Desactivado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                         llenaPersona("A");
                      }
                      else
                      {
-                         MessageBox.Show("No se Elimino el Cliente", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                         MessageBox.Show("No se Desactivo el Cliente", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                      }
                  }
              }
@@ -157,7 +158,7 @@ namespace Facturacion.Vista
              }
              catch (Exception ex)
              {
-                 MessageBox.Show("Error al eliminar Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 MessageBox.Show("Error al Presentar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
              }
          }
 
@@ -170,13 +171,13 @@ namespace Facturacion.Vista
          {
              if (chkeliminados.Checked == false)
              {
-                 llenaClientes("A");
+                 llenaPersona("A");
                  btndesactiva.Visible = true;
                  btnactivar.Visible = false;
              }
              else
              {
-                 llenaClientes("P");
+                 llenaPersona("P");
                  btndesactiva.Visible = false;
                  btnactivar.Visible = true;
              }
@@ -200,7 +201,7 @@ namespace Facturacion.Vista
                      if (resp > 0)
                      {
                          MessageBox.Show("Cliente Activado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                         llenaClientes("P");
+                         llenaPersona("P");
                      }
                      else
                      {
@@ -214,7 +215,7 @@ namespace Facturacion.Vista
              }
              catch (Exception ex)
              {
-                 MessageBox.Show("Error al presentar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 MessageBox.Show("Error al Presentar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
              }
          }
 

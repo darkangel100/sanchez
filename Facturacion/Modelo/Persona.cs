@@ -12,7 +12,7 @@ namespace Facturacion.Modelo
         private string nom_per;
         private string dir_per;
         private string tel_per;
-        private string est_per = "A";
+        private string est_per;
         private List<Persona> listaPersonas = new List<Persona>();
         private string nombre;
 
@@ -63,5 +63,6 @@ namespace Facturacion.Modelo
             get { return nombre; }
             set { nombre = value; }
         }
+      
     }
 }

@@ -43,14 +43,15 @@
             this.label36 = new System.Windows.Forms.Label();
             this.button22 = new System.Windows.Forms.Button();
             this.dgvcli = new System.Windows.Forms.DataGridView();
-            this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btndesactiva = new System.Windows.Forms.Button();
             this.chkeliminados = new System.Windows.Forms.CheckBox();
             this.btnactivar = new System.Windows.Forms.Button();
             this.btnnuevo = new System.Windows.Forms.Button();
+            this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcli)).BeginInit();
             this.SuspendLayout();
@@ -196,39 +197,14 @@
             this.Column0,
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column4});
             this.dgvcli.Location = new System.Drawing.Point(12, 231);
             this.dgvcli.Name = "dgvcli";
             this.dgvcli.ReadOnly = true;
             this.dgvcli.Size = new System.Drawing.Size(545, 254);
             this.dgvcli.TabIndex = 47;
             this.dgvcli.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcli_CellClick);
-            // 
-            // Column0
-            // 
-            this.Column0.HeaderText = "Cedula";
-            this.Column0.Name = "Column0";
-            this.Column0.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Nombres y pellidos";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Direccion";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Telefono";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // btndesactiva
             // 
@@ -272,6 +248,41 @@
             this.btnnuevo.UseVisualStyleBackColor = true;
             this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
             // 
+            // Column0
+            // 
+            this.Column0.HeaderText = "Cedula";
+            this.Column0.Name = "Column0";
+            this.Column0.ReadOnly = true;
+            this.Column0.Width = 90;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Nombres y pellidos";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Direccion";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Telefono";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 70;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Estado";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 50;
+            // 
             // SF_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,14 +323,15 @@
         private System.Windows.Forms.DataGridView dgvcli;
         private System.Windows.Forms.MaskedTextBox msktelf;
         private System.Windows.Forms.MaskedTextBox mskcedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btndesactiva;
         private System.Windows.Forms.CheckBox chkeliminados;
         private System.Windows.Forms.Button btnactivar;
         private System.Windows.Forms.Button btnnuevo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
 
     }
 }
