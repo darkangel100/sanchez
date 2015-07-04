@@ -31,20 +31,8 @@
             this.button26 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
-            this.grp_tipo = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.rdbadmin = new System.Windows.Forms.RadioButton();
             this.dgcuenta = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbp = new System.Windows.Forms.RadioButton();
-            this.rba = new System.Windows.Forms.RadioButton();
             this.mskcla = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.msktelf = new System.Windows.Forms.MaskedTextBox();
@@ -59,10 +47,14 @@
             this.txtnom = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.grp_tipo.SuspendLayout();
+            this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkeliminados = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgcuenta)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button26
@@ -92,90 +84,27 @@
             this.button28.Text = "Activar";
             this.button28.UseVisualStyleBackColor = true;
             // 
-            // grp_tipo
-            // 
-            this.grp_tipo.Controls.Add(this.radioButton2);
-            this.grp_tipo.Controls.Add(this.rdbadmin);
-            this.grp_tipo.Location = new System.Drawing.Point(294, 89);
-            this.grp_tipo.Name = "grp_tipo";
-            this.grp_tipo.Size = new System.Drawing.Size(124, 74);
-            this.grp_tipo.TabIndex = 32;
-            this.grp_tipo.TabStop = false;
-            this.grp_tipo.Text = "Tipo:";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(22, 42);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(71, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Vendedor";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // rdbadmin
-            // 
-            this.rdbadmin.AutoSize = true;
-            this.rdbadmin.Location = new System.Drawing.Point(22, 19);
-            this.rdbadmin.Name = "rdbadmin";
-            this.rdbadmin.Size = new System.Drawing.Size(88, 17);
-            this.rdbadmin.TabIndex = 0;
-            this.rdbadmin.TabStop = true;
-            this.rdbadmin.Text = "Administrador";
-            this.rdbadmin.UseVisualStyleBackColor = true;
-            // 
             // dgcuenta
             // 
+            this.dgcuenta.AllowUserToAddRows = false;
+            this.dgcuenta.AllowUserToDeleteRows = false;
             this.dgcuenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgcuenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn15,
-            this.Column12});
+            this.Column0,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
             this.dgcuenta.Location = new System.Drawing.Point(12, 257);
             this.dgcuenta.Name = "dgcuenta";
+            this.dgcuenta.ReadOnly = true;
             this.dgcuenta.Size = new System.Drawing.Size(641, 254);
             this.dgcuenta.TabIndex = 54;
             // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Cédula";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "Apellido";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "Dierección";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "Teléfono";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Estado";
-            this.Column12.Name = "Column12";
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Controls.Add(this.mskcla);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.grp_tipo);
             this.groupBox2.Controls.Add(this.msktelf);
             this.groupBox2.Controls.Add(this.txtdir);
             this.groupBox2.Controls.Add(this.txtape);
@@ -190,47 +119,14 @@
             this.groupBox2.Controls.Add(this.label36);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(621, 239);
+            this.groupBox2.Size = new System.Drawing.Size(641, 197);
             this.groupBox2.TabIndex = 53;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Usuario";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbp);
-            this.groupBox1.Controls.Add(this.rba);
-            this.groupBox1.Location = new System.Drawing.Point(424, 89);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(86, 55);
-            this.groupBox1.TabIndex = 34;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Estado:";
-            // 
-            // rbp
-            // 
-            this.rbp.AutoSize = true;
-            this.rbp.Location = new System.Drawing.Point(16, 32);
-            this.rbp.Name = "rbp";
-            this.rbp.Size = new System.Drawing.Size(57, 17);
-            this.rbp.TabIndex = 1;
-            this.rbp.Text = "Pasivo";
-            this.rbp.UseVisualStyleBackColor = true;
-            // 
-            // rba
-            // 
-            this.rba.AutoSize = true;
-            this.rba.Checked = true;
-            this.rba.Location = new System.Drawing.Point(16, 15);
-            this.rba.Name = "rba";
-            this.rba.Size = new System.Drawing.Size(55, 17);
-            this.rba.TabIndex = 0;
-            this.rba.TabStop = true;
-            this.rba.Text = "Activo";
-            this.rba.UseVisualStyleBackColor = true;
-            // 
             // mskcla
             // 
-            this.mskcla.Location = new System.Drawing.Point(371, 50);
+            this.mskcla.Location = new System.Drawing.Point(412, 103);
             this.mskcla.Name = "mskcla";
             this.mskcla.Size = new System.Drawing.Size(100, 20);
             this.mskcla.TabIndex = 5;
@@ -238,7 +134,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(313, 53);
+            this.label1.Location = new System.Drawing.Point(354, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 33;
@@ -246,14 +142,14 @@
             // 
             // msktelf
             // 
-            this.msktelf.Location = new System.Drawing.Point(371, 18);
+            this.msktelf.Location = new System.Drawing.Point(412, 63);
             this.msktelf.Name = "msktelf";
             this.msktelf.Size = new System.Drawing.Size(100, 20);
             this.msktelf.TabIndex = 4;
             // 
             // txtdir
             // 
-            this.txtdir.Location = new System.Drawing.Point(70, 147);
+            this.txtdir.Location = new System.Drawing.Point(412, 25);
             this.txtdir.Name = "txtdir";
             this.txtdir.Size = new System.Drawing.Size(181, 20);
             this.txtdir.TabIndex = 3;
@@ -274,7 +170,7 @@
             // 
             // button21
             // 
-            this.button21.Location = new System.Drawing.Point(396, 180);
+            this.button21.Location = new System.Drawing.Point(506, 159);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(75, 23);
             this.button21.TabIndex = 27;
@@ -283,7 +179,7 @@
             // 
             // button23
             // 
-            this.button23.Location = new System.Drawing.Point(294, 180);
+            this.button23.Location = new System.Drawing.Point(404, 159);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(75, 23);
             this.button23.TabIndex = 26;
@@ -328,7 +224,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(313, 21);
+            this.label35.Location = new System.Drawing.Point(354, 66);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(49, 13);
             this.label35.TabIndex = 20;
@@ -337,17 +233,60 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(12, 150);
+            this.label36.Location = new System.Drawing.Point(354, 28);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(52, 13);
             this.label36.TabIndex = 19;
             this.label36.Text = "Direccion";
+            // 
+            // Column0
+            // 
+            this.Column0.HeaderText = "Cédula";
+            this.Column0.Name = "Column0";
+            this.Column0.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Nombre y apellido";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Dierección";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Teléfono";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Estado";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // chkeliminados
+            // 
+            this.chkeliminados.AutoSize = true;
+            this.chkeliminados.Location = new System.Drawing.Point(12, 234);
+            this.chkeliminados.Name = "chkeliminados";
+            this.chkeliminados.Size = new System.Drawing.Size(154, 17);
+            this.chkeliminados.TabIndex = 58;
+            this.chkeliminados.Text = "Mostrar cuentas eliminados";
+            this.chkeliminados.UseVisualStyleBackColor = true;
             // 
             // SF_Cuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 576);
+            this.Controls.Add(this.chkeliminados);
             this.Controls.Add(this.button26);
             this.Controls.Add(this.button27);
             this.Controls.Add(this.button28);
@@ -356,14 +295,11 @@
             this.Name = "SF_Cuenta";
             this.Text = "SF_Cuenta";
             this.Load += new System.EventHandler(this.SF_Cuenta_Load);
-            this.grp_tipo.ResumeLayout(false);
-            this.grp_tipo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgcuenta)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -372,16 +308,7 @@
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.GroupBox grp_tipo;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton rdbadmin;
         private System.Windows.Forms.DataGridView dgcuenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.MaskedTextBox mskcla;
         private System.Windows.Forms.Label label1;
@@ -397,8 +324,11 @@
         private System.Windows.Forms.TextBox txtnom;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbp;
-        private System.Windows.Forms.RadioButton rba;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.CheckBox chkeliminados;
     }
 }

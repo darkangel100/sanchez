@@ -22,6 +22,7 @@ namespace Facturacion.Vista
         {
             Adiciona();
             llenaCuenta("A");
+            
         }
 
         private void SF_Cuenta_Load(object sender, EventArgs e)
@@ -59,16 +60,17 @@ namespace Facturacion.Vista
             cue.getPersona().dirper = txtdir.Text.Trim();
             cue.getPersona().telper = msktelf.Text.Trim();
             cue.getPersona().Cuenta.clacuent = mskcla.Text.Trim();
-            if (rba.Checked == true)
-                cue.getPersona().estper = "A";
-            else
-                cue.getPersona().estper = "P";
+            cue.getPersona().estper = "A";
             cue.getPersona().Cuenta.clacuent = mskcla.Text.Trim();
-            if ( rdbadmin.Checked == true)
-                cue.getPersona().Cuenta.tipcue = "A";
-            else
-                cue.getPersona().Cuenta.tipcue = "B";
-
+            //if (cborol.SelectedIndex == 0)
+            //{
+            //    cue.getPersona().Cuenta.tipcue = "A";
+            //}
+            //else
+            //    if (cborol.SelectedIndex == 1)
+            //    {
+            //        cue.getPersona().Cuenta.tipcue = "B";
+            //    }
             return cue;
         }
         public void llenaCuenta(string est)

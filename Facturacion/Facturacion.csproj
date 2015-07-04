@@ -54,6 +54,7 @@
     <Compile Include="Controlador\categoriaBD.cs" />
     <Compile Include="Controlador\ClienteDB.cs" />
     <Compile Include="Controlador\CuentaDB.cs" />
+    <Compile Include="Controlador\Util.cs" />
     <Compile Include="Modelo\Categoria.cs" />
     <Compile Include="Modelo\Cuenta.cs" />
     <Compile Include="Modelo\Persona.cs" />
