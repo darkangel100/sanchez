@@ -133,5 +133,59 @@ namespace Facturacion.Controlador
             cmd = null;
             return per.getPersona();
         }
+        public int DesactivarCliente(string ced)
+        {
+            MySqlCommand cmd;
+            MySqlConnection cn = con.GetConnection();
+            int resp = 0;
+            try
+            {
+                string sqlcad = "Update persona set est_per='P' WHERE ced_per='" + ced + "'";
+                cmd = new MySqlCommand(sqlcad, cn);
+                cmd.CommandType = CommandType.Text;
+                cn.Open();
+                resp = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            cn.Close();
+            cmd = null;
+            return resp;
+        }
+        public int ActivarCliente(string ced)
+        {
+            MySqlCommand cmd;
+            MySqlConnection cn = con.GetConnection();
+            int resp = 0;
+            try
+            {
+                string sqlcad = "Update persona set est_per='A' WHERE ced_per='" + ced + "'";
+                cmd = new MySqlCommand(sqlcad, cn);
+                cmd.CommandType = CommandType.Text;
+                cn.Open();
+                resp = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            cn.Close();
+            cmd = null;
+            return resp;
+        }
     }
 }
