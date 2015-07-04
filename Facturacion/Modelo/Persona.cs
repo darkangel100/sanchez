@@ -12,7 +12,7 @@ namespace Facturacion.Modelo
         private string nom_per;
         private string dir_per;
         private string tel_per;
-        private string est_per;
+        private string est_per = "A";
         private List<Persona> listaPersonas = new List<Persona>();
         private string nombre;
 
