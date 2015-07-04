@@ -133,6 +133,34 @@ namespace Facturacion.Controlador
             cmd = null;
             return per.getPersona();
         }
+        public int ActualizaCliente(Persona per)
+        {
+            MySqlCommand cmd;
+            MySqlConnection cn = con.GetConnection();
+            int resp;
+            try
+            {
+
+                string sqlcad = "Update persona set ape_per='" + per.apeper + "',nom_per='" + per.nomper + "',dir_per='" + per.dirper + "',tel_per='" + per.telper + "',est_per='" + per.estper + "' WHERE ced_per='" + per.cedper + "'";
+                cmd = new MySqlCommand(sqlcad, cn);
+                cmd.CommandType = CommandType.Text;
+                cn.Open();
+                resp = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            cn.Close();
+            cmd = null;
+            return resp;
+        }
         public int DesactivarCliente(string ced)
         {
             MySqlCommand cmd;
