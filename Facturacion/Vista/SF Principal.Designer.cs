@@ -71,7 +71,7 @@
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.usuarioToolStripMenuItem.Text = "Usuario";
+            this.usuarioToolStripMenuItem.Text = "Cuenta";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // personaToolStripMenuItem
@@ -114,14 +114,14 @@
             // facturacionToolStripMenuItem
             // 
             this.facturacionToolStripMenuItem.Name = "facturacionToolStripMenuItem";
-            this.facturacionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.facturacionToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.facturacionToolStripMenuItem.Text = "Facturacion";
             this.facturacionToolStripMenuItem.Click += new System.EventHandler(this.facturacionToolStripMenuItem_Click);
             // 
             // anularFacturaToolStripMenuItem
             // 
             this.anularFacturaToolStripMenuItem.Name = "anularFacturaToolStripMenuItem";
-            this.anularFacturaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.anularFacturaToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.anularFacturaToolStripMenuItem.Text = "Anular Factura";
             this.anularFacturaToolStripMenuItem.Click += new System.EventHandler(this.anularFacturaToolStripMenuItem_Click);
             // 
