@@ -80,8 +80,6 @@ namespace Facturacion.Controlador
                     per.getPersona().estper = dr[5].ToString();
                     per.getPersona().Cuenta.clacuent = dr[6].ToString();
                     per.getPersona().Cuenta.tipcue = dr[7].ToString();
-
-                   
                     ListaUsu.Add(per.getPersona());
                 }
                 dr.Close();
