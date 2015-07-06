@@ -31,8 +31,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox6 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
-            this.label50 = new System.Windows.Forms.Label();
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
@@ -64,8 +62,6 @@
             // 
             this.groupBox3.Controls.Add(this.maskedTextBox7);
             this.groupBox3.Controls.Add(this.maskedTextBox6);
-            this.groupBox3.Controls.Add(this.maskedTextBox5);
-            this.groupBox3.Controls.Add(this.label50);
             this.groupBox3.Controls.Add(this.button29);
             this.groupBox3.Controls.Add(this.button30);
             this.groupBox3.Controls.Add(this.label39);
@@ -97,22 +93,6 @@
             this.maskedTextBox6.Size = new System.Drawing.Size(100, 20);
             this.maskedTextBox6.TabIndex = 93;
             // 
-            // maskedTextBox5
-            // 
-            this.maskedTextBox5.Location = new System.Drawing.Point(404, 55);
-            this.maskedTextBox5.Name = "maskedTextBox5";
-            this.maskedTextBox5.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox5.TabIndex = 92;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(301, 58);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(86, 13);
-            this.label50.TabIndex = 74;
-            this.label50.Text = "Cedula Contacto";
-            // 
             // button29
             // 
             this.button29.Location = new System.Drawing.Point(501, 129);
@@ -143,7 +123,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(301, 91);
+            this.label40.Location = new System.Drawing.Point(301, 58);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(92, 13);
             this.label40.TabIndex = 61;
@@ -158,7 +138,7 @@
             // 
             // textBox30
             // 
-            this.textBox30.Location = new System.Drawing.Point(404, 88);
+            this.textBox30.Location = new System.Drawing.Point(404, 55);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(135, 20);
             this.textBox30.TabIndex = 66;
@@ -318,8 +298,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.MaskedTextBox maskedTextBox7;
         private System.Windows.Forms.MaskedTextBox maskedTextBox6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox5;
-        private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Label label39;

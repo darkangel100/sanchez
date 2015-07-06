@@ -31,8 +31,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.btnguardar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -43,16 +43,16 @@
             this.label24 = new System.Windows.Forms.Label();
             this.textBox36 = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnmodificar = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btndesactivar = new System.Windows.Forms.Button();
+            this.btnactivar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -61,8 +61,8 @@
             // 
             this.groupBox1.Controls.Add(this.comboBox2);
             this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.btncancelar);
+            this.groupBox1.Controls.Add(this.btnguardar);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label22);
@@ -93,23 +93,23 @@
             this.textBox8.Size = new System.Drawing.Size(112, 20);
             this.textBox8.TabIndex = 74;
             // 
-            // button5
+            // btncancelar
             // 
-            this.button5.Location = new System.Drawing.Point(375, 102);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 79;
-            this.button5.Text = "Cancelar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btncancelar.Location = new System.Drawing.Point(375, 102);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(75, 23);
+            this.btncancelar.TabIndex = 79;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnguardar
             // 
-            this.button7.Location = new System.Drawing.Point(284, 102);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 78;
-            this.button7.Text = "Guardar";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnguardar.Location = new System.Drawing.Point(284, 102);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(75, 23);
+            this.btnguardar.TabIndex = 78;
+            this.btnguardar.Text = "Guardar";
+            this.btnguardar.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -193,14 +193,14 @@
             this.label48.TabIndex = 62;
             this.label48.Text = "Buscar ";
             // 
-            // button6
+            // btnmodificar
             // 
-            this.button6.Location = new System.Drawing.Point(361, 400);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 60;
-            this.button6.Text = "Modificar";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnmodificar.Location = new System.Drawing.Point(361, 400);
+            this.btnmodificar.Name = "btnmodificar";
+            this.btnmodificar.Size = new System.Drawing.Size(75, 23);
+            this.btnmodificar.TabIndex = 60;
+            this.btnmodificar.Text = "Modificar";
+            this.btnmodificar.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -216,24 +216,6 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(642, 165);
             this.dataGridView2.TabIndex = 61;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(255, 400);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 59;
-            this.button11.Text = "Desactivar";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(149, 400);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 58;
-            this.button12.Text = "Activar";
-            this.button12.UseVisualStyleBackColor = true;
             // 
             // Column3
             // 
@@ -265,6 +247,24 @@
             this.Column10.HeaderText = "Estado";
             this.Column10.Name = "Column10";
             // 
+            // btndesactivar
+            // 
+            this.btndesactivar.Location = new System.Drawing.Point(255, 400);
+            this.btndesactivar.Name = "btndesactivar";
+            this.btndesactivar.Size = new System.Drawing.Size(75, 23);
+            this.btndesactivar.TabIndex = 59;
+            this.btndesactivar.Text = "Desactivar";
+            this.btndesactivar.UseVisualStyleBackColor = true;
+            // 
+            // btnactivar
+            // 
+            this.btnactivar.Location = new System.Drawing.Point(149, 400);
+            this.btnactivar.Name = "btnactivar";
+            this.btnactivar.Size = new System.Drawing.Size(75, 23);
+            this.btnactivar.TabIndex = 58;
+            this.btnactivar.Text = "Activar";
+            this.btnactivar.UseVisualStyleBackColor = true;
+            // 
             // SF_Producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,10 +273,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox36);
             this.Controls.Add(this.label48);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btnmodificar);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button12);
+            this.Controls.Add(this.btndesactivar);
+            this.Controls.Add(this.btnactivar);
             this.Name = "SF_Producto";
             this.Text = "SF_Producto";
             this.groupBox1.ResumeLayout(false);
@@ -292,8 +292,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.Button btnguardar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label22;
@@ -304,10 +304,10 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBox36;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnmodificar;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btndesactivar;
+        private System.Windows.Forms.Button btnactivar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

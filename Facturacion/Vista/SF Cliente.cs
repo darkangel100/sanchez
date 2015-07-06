@@ -76,7 +76,7 @@ namespace Facturacion.Vista
                 objC.getPersona().ListaPersonas = objC.TraeClientes(est);
                 if (objC.getPersona().ListaPersonas.Count == 0)
                 {
-                    MessageBox.Show("No existen Clientes desactivados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No existen Clientes Ingresados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {

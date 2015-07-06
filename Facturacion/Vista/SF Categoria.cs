@@ -18,130 +18,267 @@ namespace Facturacion.Vista
         {
             InitializeComponent();
         }
-        
-        
-        //private void btnguardacatg_Click(object sender, EventArgs e)
-        //{
-        //    if (estado == "N")
-        //    {
-        //        Adiciona();
-        //    }
-        //    if (estado == "E")
-        //    {
-        //        Editar();
-        //    }
-          
-        //    rbn_actcateg.Checked = false;
-        //    rbn_pasvcateg.Checked = false;
-        //    llenaCategorias("A");
-        
-        //}
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            if (estado == "N")
+            {
+                Adiciona();
+            }
+            if (estado == "E")
+            {
+                Editar();
+            }
+            groupBox1.Enabled = true;
+            llenaCat("A");
+        }
+
         private void Adiciona()
         {
             try
             {
-                categoriaBD objC = new categoriaBD();
+                CategoriaDB objC = new CategoriaDB();
                 int resp;
-                llenacategoria(objC);
-                resp = objC.InsertaCategoria(objC.getCategoria());
+                llenaCategoria(objC);
+                resp = objC.InsertaCategoria(objC.getCategorias());
                 if (resp == 0)
                 {
-                    MessageBox.Show("No se ingresó datos de La Categoria", "facturacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se ingreso datos de la Categoria", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Cliente Ingresado", "facturacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Categoria Ingresado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al Ingresar Datos," + ex.Message, "facturacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al Ingresar Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private categoriaBD llenacategoria(categoriaBD categ)
+        private CategoriaDB llenaCategoria(CategoriaDB lcat)
         {
-            categ.getCategoria().nomcat = txtnomcat.Text.Trim();
-           
-            if (rbn_actcateg.Checked == true)
-            {
-                categ.getCategoria().estcat = "Activo";
-            }
-            else
-            {
-                categ.getCategoria().estcat = "Pacivo";
-            }
-            return categ;
+            lcat.getCategorias().idcat = txtcod.Text.Trim();
+            lcat.getCategorias().nomcat = txtnom.Text.Trim();
+            lcat.getCategorias().estcat = "A";          
+            return lcat;
         }
-       
-        public void llenaCategorias()
+      
+        public void llenaCat(string est)
         {
             try
             {
-                dataGridView1.Rows.Clear();
-                categoriaBD objB = new categoriaBD();
-                objB.getCategoria().ListaCategorias = objB.TraeCategorias();
-                if (objB.getCategoria().ListaCategorias.Count == 0)
+                dgvcat.Rows.Clear();
+                CategoriaDB objC = new CategoriaDB();
+                objC.getCategorias().ListaCategorias = objC.TraeCategorias(est);
+                if (objC.getCategorias().ListaCategorias.Count == 0)
                 {
-                    MessageBox.Show("No existen Categoria Registrados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No existen Categorias Ingresadas", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
                     fila = 0;
-                    for (int i = 0; i < objB.getCategoria().ListaCategorias.Count; i++)
+                    for (int i = 0; i < objC.getCategorias().ListaCategorias.Count; i++)
                     {
-                        dataGridView1.Rows.Add(1);
-                        dataGridView1.Rows[i].Cells[0].Value = objB.getCategoria().ListaCategorias[i].nomcat;
-                        dataGridView1.Rows[i].Cells[1].Value = objB.getCategoria().ListaCategorias[i].estcat;
-                        
+                        dgvcat.Rows.Add(1);
+                        dgvcat.Rows[i].Cells[0].Value = objC.getCategorias().ListaCategorias[i].idcat;
+                        dgvcat.Rows[i].Cells[1].Value = objC.getCategorias().ListaCategorias[i].nomcat;
+                        dgvcat.Rows[i].Cells[2].Value = objC.getCategorias().ListaCategorias[i].estcat;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al Presentar los Datos, " + ex.Message, "facturacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error Al Presentar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        private void SF_Categoria_Load(object sender, EventArgs e)
-        {
-            llenaCategorias();
         }
         private void Editar()
         {
             try
             {
-                categoriaBD objC = new categoriaBD();
+                CategoriaDB objC = new CategoriaDB();
                 int resp;
-                objC.getCategoria().nomcat = txtnomcat.Text;
-                llenacategoria(objC);
-                resp = objC.ActualizaCategoria(objC.getCategoria());
+                llenaCategoria(objC);
+                resp = objC.ActualizaCategoria(objC.getCategorias());
                 if (resp == 0)
                 {
-                    MessageBox.Show("No se modificó datos de la  Categoria", "facturacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se ingreso datos de Categoria", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Categoria Modificado", "facturacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Categoria Modificada", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     estado = "";
-                    llenaCategorias();
+                    llenaCat("A");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al Ingresar Datos," + ex.Message, "facturacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al Ingresar Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void button18_Click(object sender, EventArgs e)
+        
+        private void btndesactivar_Click(object sender, EventArgs e)
         {
-            Adiciona();
-            llenaCategorias();
+            desactivar();
         }
 
-        private void SF_Categoria_Load_1(object sender, EventArgs e)
+        private void desactivar()
         {
-            llenaCategorias();
+            try
+            {
+                CategoriaDB objB = new CategoriaDB();
+                int resp;
+                string ced = dgvcat.Rows[fila].Cells[0].Value.ToString();
+                if (MessageBox.Show("Desea desactivar a: " + dgvcat.Rows[fila].Cells[1].Value.ToString(), "Tienda", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    resp = objB.DesactivarCategoria(ced);
+                    if (resp > 0)
+                    {
+                        MessageBox.Show("Cliente Desactivado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        llenaCat("A");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se Desactivo la Categoria", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (DBConcurrencyException ex)
+            {
+                MessageBox.Show(ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Presentar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        private void btnmodificar_Click(object sender, EventArgs e)
+        {
+            groupBox1.Enabled = true;
+            txtcod.Enabled = false;
+            modificar();
+        }
+
+        private void modificar()
+        {
+            try
+            {
+                CategoriaDB objC = new CategoriaDB();
+                objC.setCategorias(objC.TraeCategoria(dgvcat.Rows[fila].Cells[0].Value.ToString()));
+                if (objC.getCategorias().idcat.Equals(""))
+                {
+                    MessageBox.Show("No existe registro del Categoria", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    txtcod.Text = objC.getCategorias().idcat;
+                    txtnom.Text = objC.getCategorias().nomcat;
+                    txtcod.Enabled = false;
+                    estado = "E";
+                    txtnom.Focus();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al presentar los datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+       
+        private void SF_Categoria_Load(object sender, EventArgs e)
+        {
+            llenaCat("A");
+        }
+
+        private void btnnuevo_Click(object sender, EventArgs e)
+        {
+            estado = "N";
+            Util.limpiar(groupBox1.Controls);
+            groupBox1.Enabled = true;
+            txtnom.Enabled = true;
+            txtnom.Focus();
+            codigo();
+        }
+        private void codigo()
+        {
+            try
+            {
+                int nro;
+                CategoriaDB obj = new CategoriaDB();
+                nro = obj.TraeCodigo();
+                txtcod.Text = (nro + 1).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Tienda", MessageBoxButtons.OK);
+            }
+        }
+
+     
+
+        private void dgvcat_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            fila = dgvcat.CurrentRow.Index;
+        }
+
+        private void btnactivar_Click(object sender, EventArgs e)
+        {
+            activar();
+        }
+
+
+
+        private void activar()
+        {
+            try
+            {
+                CategoriaDB objB = new CategoriaDB();
+                int resp;
+                string cod = dgvcat.Rows[fila].Cells[0].Value.ToString();
+                if (MessageBox.Show("Desea Activar a: " + dgvcat.Rows[fila].Cells[1].Value.ToString(), "Tienda", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    resp = objB.ActivarCategoria(cod);
+                    if (resp > 0)
+                    {
+                        MessageBox.Show("Categoria Activada", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        llenaCat("P");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se Activo la Categoria", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (DBConcurrencyException ex)
+            {
+                MessageBox.Show(ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Presentar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void chkeliminados_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkeliminados.Checked == false)
+            {
+                llenaCat("A");
+                btndesactivar.Visible = true;
+                btnactivar.Visible = false;
+            }
+            else
+            {
+                llenaCat("P");
+                btndesactivar.Visible = false;
+                btnactivar.Visible = true;
+            }
+        }
+      
+       
 
         
+ 
     }
 }

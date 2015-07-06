@@ -30,17 +30,15 @@
         {
             this.btnsalir = new System.Windows.Forms.Button();
             this.btnacpertar = new System.Windows.Forms.Button();
-            this.txtclave_Acc = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtced_Acc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbnom_Acc = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtced = new System.Windows.Forms.TextBox();
+            this.txtclave = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnsalir
             // 
-            this.btnsalir.Location = new System.Drawing.Point(153, 198);
+            this.btnsalir.Location = new System.Drawing.Point(151, 113);
             this.btnsalir.Name = "btnsalir";
             this.btnsalir.Size = new System.Drawing.Size(93, 25);
             this.btnsalir.TabIndex = 16;
@@ -49,7 +47,7 @@
             // 
             // btnacpertar
             // 
-            this.btnacpertar.Location = new System.Drawing.Point(36, 198);
+            this.btnacpertar.Location = new System.Drawing.Point(34, 113);
             this.btnacpertar.Name = "btnacpertar";
             this.btnacpertar.Size = new System.Drawing.Size(93, 25);
             this.btnacpertar.TabIndex = 15;
@@ -57,73 +55,55 @@
             this.btnacpertar.UseVisualStyleBackColor = true;
             this.btnacpertar.Click += new System.EventHandler(this.btnacpertar_Click);
             // 
-            // txtclave_Acc
-            // 
-            this.txtclave_Acc.Location = new System.Drawing.Point(81, 143);
-            this.txtclave_Acc.MaxLength = 6;
-            this.txtclave_Acc.Name = "txtclave_Acc";
-            this.txtclave_Acc.PasswordChar = '*';
-            this.txtclave_Acc.Size = new System.Drawing.Size(148, 20);
-            this.txtclave_Acc.TabIndex = 14;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 146);
+            this.label4.Location = new System.Drawing.Point(21, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Clave";
             // 
-            // txtced_Acc
-            // 
-            this.txtced_Acc.Location = new System.Drawing.Point(81, 93);
-            this.txtced_Acc.MaxLength = 10;
-            this.txtced_Acc.Name = "txtced_Acc";
-            this.txtced_Acc.Size = new System.Drawing.Size(149, 20);
-            this.txtced_Acc.TabIndex = 12;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 96);
+            this.label3.Location = new System.Drawing.Point(21, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "Cédula";
             // 
-            // cbnom_Acc
+            // txtced
             // 
-            this.cbnom_Acc.FormattingEnabled = true;
-            this.cbnom_Acc.Location = new System.Drawing.Point(81, 40);
-            this.cbnom_Acc.Name = "cbnom_Acc";
-            this.cbnom_Acc.Size = new System.Drawing.Size(182, 21);
-            this.cbnom_Acc.TabIndex = 10;
+            this.txtced.Location = new System.Drawing.Point(81, 12);
+            this.txtced.MaxLength = 10;
+            this.txtced.Name = "txtced";
+            this.txtced.Size = new System.Drawing.Size(149, 20);
+            this.txtced.TabIndex = 12;
             // 
-            // label1
+            // txtclave
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Nombre";
+            this.txtclave.Location = new System.Drawing.Point(81, 62);
+            this.txtclave.MaxLength = 6;
+            this.txtclave.Name = "txtclave";
+            this.txtclave.PasswordChar = '*';
+            this.txtclave.Size = new System.Drawing.Size(148, 20);
+            this.txtclave.TabIndex = 14;
             // 
             // SF_Acceso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 237);
+            this.ClientSize = new System.Drawing.Size(268, 154);
             this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.btnacpertar);
-            this.Controls.Add(this.txtclave_Acc);
+            this.Controls.Add(this.txtclave);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtced_Acc);
+            this.Controls.Add(this.txtced);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cbnom_Acc);
-            this.Controls.Add(this.label1);
             this.Name = "SF_Acceso";
             this.Text = "SF_Acceso";
+            this.Load += new System.EventHandler(this.SF_Acceso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,11 +113,9 @@
 
         private System.Windows.Forms.Button btnsalir;
         private System.Windows.Forms.Button btnacpertar;
-        private System.Windows.Forms.TextBox txtclave_Acc;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtced_Acc;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbnom_Acc;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtced;
+        private System.Windows.Forms.TextBox txtclave;
     }
 }

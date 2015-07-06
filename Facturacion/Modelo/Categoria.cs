@@ -8,36 +8,32 @@ namespace Facturacion.Modelo
 {
     class Categoria
     {
+        private string id_cat;
         private string nom_cat;
-        private string idCategoria;
-        private string est_cat;
         private List<Categoria> listaCategorias = new List<Categoria>();
-        private string nombre;
 
-        public string idcategoria
+        public string idcat
         {
-            get { return idCategoria; }
-            set { idCategoria = value; }
+            get { return id_cat; }
+            set { id_cat = value; }
         }
         public string nomcat
         {
             get { return nom_cat; }
             set { nom_cat = value; }
         }
-        public string estcat
-        {
-            get { return est_cat; }
-            set { est_cat = value; }
-        }
         public List<Categoria> ListaCategorias
         {
             get { return listaCategorias; }
             set { listaCategorias = value; }
         }
-        public string Nombre
+        private string est_cat;
+
+        public string estcat
         {
-            get { return nombre; }
-            set { nombre = value; }
+            get { return est_cat; }
+            set { est_cat = value; }
         }
+        
     }
 }

@@ -72,6 +72,8 @@ namespace Facturacion.Vista
             sffaccompra.Show();
         }
 
+        
+
     
 
        
