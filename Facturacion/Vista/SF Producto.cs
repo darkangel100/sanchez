@@ -34,9 +34,10 @@ namespace Facturacion.Vista
             try
             {
                 int nro;
-                ProductoDB obj = new ProductoDB();
-                nro = obj.TraeCodigo();
-                txtcod.Text = (nro + 1).ToString();
+                string cod = cbocat.SelectedValue.ToString();
+                ProductoDB objP = new ProductoDB();
+                nro = objP.TraeCodigo();
+                txtcod.Text = Util.codi(cod, nro);
             }
             catch (Exception ex)
             {
@@ -50,11 +51,13 @@ namespace Facturacion.Vista
             {
                 Adiciona();
             }
-            //if (estado == "E")
-            //{
-            //    Editar();
-            //}
-            llenaProd("A");
+            if (estado == "E")
+            {
+                Editar();
+            }
+            llenaPro("A");
+            txtcod.Enabled = false;
+            cbocat.Enabled = true;
         }
         private void Adiciona()
         {
@@ -62,20 +65,6 @@ namespace Facturacion.Vista
             {
                 ProductoDB objP = new ProductoDB();
                 llenaProducto(objP);
-                objP.getProductos().codpro = txtcod.Text.Trim();
-                objP.getProductos().codcat = cbocat.SelectedValue.ToString();
-                objP.getProductos().nompro = txtnom.Text.Trim();
-                objP.getProductos().precom = Convert.ToDouble(txtcom.Text.Trim());
-                objP.getProductos().canpro = Convert.ToInt32(txtcan.Text.Trim());
-                objP.getProductos().porgan = Convert.ToDouble(txtgan.Text.Trim());
-                objP.getProductos().pregan = Convert.ToDouble(txtreal.Text.Trim());
-                if (chkiva.Checked == true)
-                    objP.getProductos().ivasn = "I";
-                else
-                    objP.getProductos().ivasn = "N";
-                objP.getProductos().preven = Convert.ToDouble(txtven.Text.Trim());
-                objP.getProductos().fecela = Util.girafecha(dtpfece.Value.ToShortDateString());
-
                 int resp = objP.Insertaproducto(objP.getProductos());
                 if (resp == 0)
                 {
@@ -96,14 +85,19 @@ namespace Facturacion.Vista
         }
         private ProductoDB llenaProducto(ProductoDB lpro)
         {
-            lpro.getProductos().codpro = txtcod.Text.Trim();
-            lpro.getProductos().codcat = cbocat.Text.Trim();
+            lpro.getProductos().idpro = txtcod.Text.Trim();
+            lpro.getProductos().idcat = cbocat.SelectedValue.ToString();
             lpro.getProductos().nompro = txtnom.Text.Trim();
             lpro.getProductos().precom = Convert.ToDouble(txtcom.Text.Trim());
-            lpro.getProductos().canpro = int.Parse(txtstock.Text.Trim());
+            lpro.getProductos().canpro = Convert.ToInt32(txtcan.Text.Trim());
             lpro.getProductos().porgan = Convert.ToDouble(txtgan.Text.Trim());
             lpro.getProductos().pregan = Convert.ToDouble(txtreal.Text.Trim());
+            if (chkiva.Checked == true)
+                lpro.getProductos().ivasn = "I";
+            else
+                lpro.getProductos().ivasn = "N";
             lpro.getProductos().preven = Convert.ToDouble(txtven.Text.Trim());
+            lpro.getProductos().fecing = Util.girafecha(dtpfece.Value.ToShortDateString());
             lpro.getProductos().estpro = "A";
             return lpro;
         }
@@ -124,14 +118,17 @@ namespace Facturacion.Vista
                     for (int i = 0; i < objC.getProductos().ListaProductos.Count; i++)
                     {
                         dgvpro.Rows.Add(1);
-                        dgvpro.Rows[i].Cells[0].Value = objC.getProductos().ListaProductos[i].codpro;
-                        dgvpro.Rows[i].Cells[1].Value = objC.getProductos().ListaProductos[i].codcat;
+                        dgvpro.Rows[i].Cells[0].Value = objC.getProductos().ListaProductos[i].idpro;
+                        dgvpro.Rows[i].Cells[1].Value = objC.getProductos().ListaProductos[i].idcat;
                         dgvpro.Rows[i].Cells[2].Value = objC.getProductos().ListaProductos[i].nompro;
                         dgvpro.Rows[i].Cells[3].Value = objC.getProductos().ListaProductos[i].precom;
                         dgvpro.Rows[i].Cells[4].Value = objC.getProductos().ListaProductos[i].canpro;
                         dgvpro.Rows[i].Cells[5].Value = objC.getProductos().ListaProductos[i].porgan;
                         dgvpro.Rows[i].Cells[6].Value = objC.getProductos().ListaProductos[i].pregan;
                         dgvpro.Rows[i].Cells[7].Value = objC.getProductos().ListaProductos[i].preven;
+                        dgvpro.Rows[i].Cells[8].Value = objC.getProductos().ListaProductos[i].ivasn;
+                        dgvpro.Rows[i].Cells[9].Value = objC.getProductos().ListaProductos[i].fecing;
+                        dgvpro.Rows[i].Cells[10].Value = objC.getProductos().ListaProductos[i].estpro;
                     }
                 }
             }
@@ -160,40 +157,172 @@ namespace Facturacion.Vista
             }
         }
 
-       
-        public void llenaProd(string est)
+        private void Editar()
         {
             try
             {
-                dgvpro.Rows.Clear();
-                ProductoDB objC = new ProductoDB();
-                objC.getProductos().ListaProductos = objC.Traeproductos(est);
-                if (objC.getProductos().ListaProductos.Count == 0)
+                ProductoDB objP = new ProductoDB();
+                int resp;
+                llenaProducto(objP);
+                resp = objP.Actualizaproducto(objP.getProductos());
+                if (resp == 0)
                 {
-                    MessageBox.Show("No existen Productos Ingresadas", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No se ingreso datos de Producto", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    fila = 0;
-                    for (int i = 0; i < objC.getProductos().ListaProductos.Count; i++)
-                    {
-                        dgvpro.Rows.Add(1);
-                        dgvpro.Rows[i].Cells[0].Value = objC.getProductos().ListaProductos[i].codpro;
-                        dgvpro.Rows[i].Cells[1].Value = objC.getProductos().ListaProductos[i].codcat;
-                        dgvpro.Rows[i].Cells[2].Value = objC.getProductos().ListaProductos[i].nompro;
-                    }
+                    MessageBox.Show("Producto Modificado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    estado = "";
+                    llenacategoria(cbocat, "A");
+                   
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error Al Presentar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al modificar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void SF_Producto_Load(object sender, EventArgs e)
         {
             llenacategoria(cbocat,"A");
-            llenaProd("A");
+            llenaPro("A");
         }
-        
+
+        private void btnmodificar_Click(object sender, EventArgs e)
+        {
+            groupBox1.Enabled = true;
+            txtcod.Enabled = false;
+            cbocat.Enabled = false;
+            modificar();
+        }
+        private void modificar()
+        {
+            try
+            {
+                ProductoDB pro = new ProductoDB();
+                CategoriaDB cat = new CategoriaDB();
+                pro.setProductos(pro.Traeproducto(dgvpro.Rows[fila].Cells[0].Value.ToString()));
+                if (pro.getProductos().idpro.Equals(""))
+                {
+                    MessageBox.Show("No existe registro de Productos", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    txtcod.Text = pro.getProductos().idpro;
+                    string codc = pro.getProductos().idcat;
+                    cat.setCategorias(cat.TraeCategoria(codc));
+                    cbocat.Text = cat.getCategorias().nomcat;
+                    txtnom.Text = pro.getProductos().nompro;
+                    txtcom.Text = pro.getProductos().precom.ToString();
+                    txtcan.Text = pro.getProductos().canpro.ToString();
+                    txtgan.Text = pro.getProductos().porgan.ToString();
+                    txtreal.Text = pro.getProductos().pregan.ToString();
+                    if (pro.getProductos().ivasn == "I")
+                        chkiva.Checked = true;
+                    else
+                        chkiva.Checked = false;
+                    txtven.Text = pro.getProductos().preven.ToString();
+                    dtpfece.Value = Convert.ToDateTime(pro.getProductos().fecing);
+                    estado = "E";
+                    txtnom.Focus();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al presentar los datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvpro_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            fila = dgvpro.CurrentRow.Index;
+        }
+
+        private void btndesactivar_Click(object sender, EventArgs e)
+        {
+            desactivar();
+        }
+        private void desactivar()
+        {
+            try
+            {
+                ProductoDB objB = new ProductoDB();
+                int resp;
+                string pro = dgvpro.Rows[fila].Cells[0].Value.ToString();
+                if (MessageBox.Show("Desea desactivar a: " + dgvpro.Rows[fila].Cells[2].Value.ToString(), "Tienda", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    resp = objB.DesactivarProducto(pro);
+                    if (resp > 0)
+                    {
+                        MessageBox.Show("Producto Desactivado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        llenaPro("A");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se Desactivo el Producto", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (DBConcurrencyException ex)
+            {
+                MessageBox.Show(ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Presentar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Activar()
+        {
+            try
+            {
+                ProductoDB objB = new ProductoDB();
+                int resp;
+                string pro = dgvpro.Rows[fila].Cells[0].Value.ToString();
+                if (MessageBox.Show("Desea desactivar a: " + dgvpro.Rows[fila].Cells[2].Value.ToString(), "Tienda", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    resp = objB.DesactivarProducto(pro);
+                    if (resp > 0)
+                    {
+                        MessageBox.Show("Producto Desactivado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        llenaPro("P");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se Desactivo el Producto", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (DBConcurrencyException ex)
+            {
+                MessageBox.Show(ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Presentar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnactivar_Click(object sender, EventArgs e)
+        {
+            Activar();
+        }
+
+        private void chkeliminados_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkeliminados.Checked == false)
+            {
+                llenaPro("A");
+                btndesactivar.Visible = true;
+                btnactivar.Visible = false;
+            }
+            else
+            {
+                llenaPro("P");
+                btndesactivar.Visible = false;
+                btnactivar.Visible = true;
+            }
+        }
     }
 }

@@ -53,15 +53,21 @@
             this.label23 = new System.Windows.Forms.Label();
             this.btnmodificar = new System.Windows.Forms.Button();
             this.dgvpro = new System.Windows.Forms.DataGridView();
+            this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btndesactivar = new System.Windows.Forms.Button();
             this.btnactivar = new System.Windows.Forms.Button();
             this.btnnuevo = new System.Windows.Forms.Button();
+            this.chkeliminados = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpro)).BeginInit();
             this.SuspendLayout();
@@ -242,6 +248,7 @@
             // 
             // txtcod
             // 
+            this.txtcod.Enabled = false;
             this.txtcod.Location = new System.Drawing.Point(89, 18);
             this.txtcod.Name = "txtcod";
             this.txtcod.Size = new System.Drawing.Size(65, 20);
@@ -308,73 +315,122 @@
             this.btnmodificar.TabIndex = 60;
             this.btnmodificar.Text = "Modificar";
             this.btnmodificar.UseVisualStyleBackColor = true;
+            this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
             // 
             // dgvpro
             // 
+            this.dgvpro.AllowUserToAddRows = false;
+            this.dgvpro.AllowUserToDeleteRows = false;
             this.dgvpro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvpro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column0,
+            this.Column1,
+            this.Column2,
             this.Column3,
             this.Column4,
-            this.Column1,
             this.Column5,
-            this.Column2,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
             this.Column10});
             this.dgvpro.Location = new System.Drawing.Point(12, 268);
             this.dgvpro.Name = "dgvpro";
+            this.dgvpro.ReadOnly = true;
             this.dgvpro.Size = new System.Drawing.Size(642, 165);
             this.dgvpro.TabIndex = 61;
+            this.dgvpro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvpro_CellClick);
             // 
-            // Column3
+            // Column0
             // 
-            this.Column3.HeaderText = "Codigo Producto";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Nombre";
-            this.Column4.Name = "Column4";
+            this.Column0.HeaderText = "codigo producto";
+            this.Column0.Name = "Column0";
+            this.Column0.ReadOnly = true;
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Precio";
+            this.Column1.HeaderText = "codigocategoria";
             this.Column1.Name = "Column1";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Stock";
-            this.Column5.Name = "Column5";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Categoría";
+            this.Column2.HeaderText = "nombre producto";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "precom";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "can_pro";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "por gan ";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "pre gan";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "iva sn";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "pre ven";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "fec ing";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // Column10
             // 
-            this.Column10.HeaderText = "Estado";
+            this.Column10.HeaderText = "estado";
             this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
             // 
             // btndesactivar
             // 
-            this.btndesactivar.Location = new System.Drawing.Point(245, 451);
+            this.btndesactivar.Location = new System.Drawing.Point(334, 451);
             this.btndesactivar.Name = "btndesactivar";
             this.btndesactivar.Size = new System.Drawing.Size(75, 23);
             this.btndesactivar.TabIndex = 59;
             this.btndesactivar.Text = "Desactivar";
             this.btndesactivar.UseVisualStyleBackColor = true;
+            this.btndesactivar.Click += new System.EventHandler(this.btndesactivar_Click);
             // 
             // btnactivar
             // 
-            this.btnactivar.Location = new System.Drawing.Point(161, 451);
+            this.btnactivar.Location = new System.Drawing.Point(333, 451);
             this.btnactivar.Name = "btnactivar";
             this.btnactivar.Size = new System.Drawing.Size(75, 23);
             this.btnactivar.TabIndex = 58;
             this.btnactivar.Text = "Activar";
             this.btnactivar.UseVisualStyleBackColor = true;
+            this.btnactivar.Visible = false;
+            this.btnactivar.Click += new System.EventHandler(this.btnactivar_Click);
             // 
             // btnnuevo
             // 
-            this.btnnuevo.Location = new System.Drawing.Point(339, 451);
+            this.btnnuevo.Location = new System.Drawing.Point(247, 451);
             this.btnnuevo.Name = "btnnuevo";
             this.btnnuevo.Size = new System.Drawing.Size(75, 23);
             this.btnnuevo.TabIndex = 67;
@@ -382,11 +438,23 @@
             this.btnnuevo.UseVisualStyleBackColor = true;
             this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
             // 
+            // chkeliminados
+            // 
+            this.chkeliminados.AutoSize = true;
+            this.chkeliminados.Location = new System.Drawing.Point(12, 245);
+            this.chkeliminados.Name = "chkeliminados";
+            this.chkeliminados.Size = new System.Drawing.Size(152, 17);
+            this.chkeliminados.TabIndex = 68;
+            this.chkeliminados.Text = "Mostrar clientes eliminados";
+            this.chkeliminados.UseVisualStyleBackColor = true;
+            this.chkeliminados.CheckedChanged += new System.EventHandler(this.chkeliminados_CheckedChanged);
+            // 
             // SF_Producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 621);
+            this.Controls.Add(this.chkeliminados);
             this.Controls.Add(this.btnnuevo);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnmodificar);
@@ -400,6 +468,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpro)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -418,12 +487,6 @@
         private System.Windows.Forms.DataGridView dgvpro;
         private System.Windows.Forms.Button btndesactivar;
         private System.Windows.Forms.Button btnactivar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkiva;
         private System.Windows.Forms.TextBox txtcan;
@@ -439,5 +502,17 @@
         private System.Windows.Forms.Button btnnuevo;
         private System.Windows.Forms.DateTimePicker dtpfece;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.CheckBox chkeliminados;
     }
 }

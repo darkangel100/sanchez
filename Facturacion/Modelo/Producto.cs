@@ -7,8 +7,8 @@ namespace Facturacion.Modelo
 {
     class Producto
     {
-        private string cod_pro;
-        private string cod_cat;
+        private string id_pro;
+        private string id_cat;
         private string nom_pro;
         private double pre_com;
         private int can_pro;
@@ -16,18 +16,18 @@ namespace Facturacion.Modelo
         private double pre_gan;
         private string iva_sn;
         private double pre_ven;
-        private string fec_ela;
+        private string fec_ing;
         private List<Producto> listaProductos = new List<Producto>();
 
-        public string codpro
+        public string idpro
         {
-            get { return cod_pro; }
-            set { cod_pro = value; }
+            get { return id_pro; }
+            set { id_pro = value; }
         }
-        public string codcat
+        public string idcat
         {
-            get { return cod_cat; }
-            set { cod_cat = value; }
+            get { return id_cat; }
+            set { id_cat = value; }
         }
         public string nompro
         {
@@ -64,10 +64,10 @@ namespace Facturacion.Modelo
             get { return pre_ven; }
             set { pre_ven = value; }
         }
-        public string fecela
+        public string fecing
         {
-            get { return fec_ela; }
-            set { fec_ela = value; }
+            get { return fec_ing; }
+            set { fec_ing = value; }
         }
         public List<Producto> ListaProductos
         {
