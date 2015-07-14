@@ -32,8 +32,17 @@
             this.btndesactivar = new System.Windows.Forms.Button();
             this.btnactivar = new System.Windows.Forms.Button();
             this.dgvcuenta = new System.Windows.Forms.DataGridView();
+            this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkeliminados = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cborol = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtusu = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.mskcla = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.msktelf = new System.Windows.Forms.MaskedTextBox();
@@ -49,11 +58,6 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.btnnuevo = new System.Windows.Forms.Button();
-            this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcuenta)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +70,6 @@
             this.btnmodificar.TabIndex = 57;
             this.btnmodificar.Text = "Modificar";
             this.btnmodificar.UseVisualStyleBackColor = true;
-            this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
             // 
             // btndesactivar
             // 
@@ -76,7 +79,6 @@
             this.btndesactivar.TabIndex = 56;
             this.btndesactivar.Text = "Desactivar";
             this.btndesactivar.UseVisualStyleBackColor = true;
-            this.btndesactivar.Click += new System.EventHandler(this.btndesactivar_Click);
             // 
             // btnactivar
             // 
@@ -87,7 +89,6 @@
             this.btnactivar.Text = "Activar";
             this.btnactivar.UseVisualStyleBackColor = true;
             this.btnactivar.Visible = false;
-            this.btnactivar.Click += new System.EventHandler(this.btnactivar_Click);
             // 
             // dgvcuenta
             // 
@@ -100,26 +101,63 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dgvcuenta.Location = new System.Drawing.Point(12, 257);
+            this.dgvcuenta.Location = new System.Drawing.Point(12, 269);
             this.dgvcuenta.Name = "dgvcuenta";
             this.dgvcuenta.ReadOnly = true;
             this.dgvcuenta.Size = new System.Drawing.Size(555, 254);
             this.dgvcuenta.TabIndex = 54;
-            this.dgvcuenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcuenta_CellClick);
+            // 
+            // Column0
+            // 
+            this.Column0.HeaderText = "Cédula";
+            this.Column0.Name = "Column0";
+            this.Column0.ReadOnly = true;
+            this.Column0.Width = 90;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Apellido y Nombre";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Dierección";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Teléfono";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 70;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Estado";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 50;
             // 
             // chkeliminados
             // 
             this.chkeliminados.AutoSize = true;
-            this.chkeliminados.Location = new System.Drawing.Point(12, 234);
+            this.chkeliminados.Location = new System.Drawing.Point(12, 246);
             this.chkeliminados.Name = "chkeliminados";
             this.chkeliminados.Size = new System.Drawing.Size(154, 17);
             this.chkeliminados.TabIndex = 58;
             this.chkeliminados.Text = "Mostrar cuentas eliminados";
             this.chkeliminados.UseVisualStyleBackColor = true;
-            this.chkeliminados.CheckedChanged += new System.EventHandler(this.chkeliminados_CheckedChanged);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cborol);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.txtusu);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.mskcla);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.msktelf);
@@ -134,25 +172,58 @@
             this.groupBox2.Controls.Add(this.txtnom);
             this.groupBox2.Controls.Add(this.label35);
             this.groupBox2.Controls.Add(this.label36);
-            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(555, 206);
+            this.groupBox2.Size = new System.Drawing.Size(564, 216);
             this.groupBox2.TabIndex = 53;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Usuario";
             // 
+            // cborol
+            // 
+            this.cborol.FormattingEnabled = true;
+            this.cborol.Location = new System.Drawing.Point(359, 150);
+            this.cborol.Name = "cborol";
+            this.cborol.Size = new System.Drawing.Size(121, 21);
+            this.cborol.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(301, 158);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 13);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Rol";
+            // 
+            // txtusu
+            // 
+            this.txtusu.Location = new System.Drawing.Point(72, 155);
+            this.txtusu.Name = "txtusu";
+            this.txtusu.Size = new System.Drawing.Size(100, 20);
+            this.txtusu.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 158);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Usuario";
+            // 
             // mskcla
             // 
-            this.mskcla.Location = new System.Drawing.Point(359, 111);
+            this.mskcla.Location = new System.Drawing.Point(359, 112);
             this.mskcla.Name = "mskcla";
+            this.mskcla.PasswordChar = '*';
             this.mskcla.Size = new System.Drawing.Size(100, 20);
-            this.mskcla.TabIndex = 5;
+            this.mskcla.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(301, 115);
+            this.label1.Location = new System.Drawing.Point(301, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 33;
@@ -161,16 +232,17 @@
             // msktelf
             // 
             this.msktelf.Location = new System.Drawing.Point(359, 71);
+            this.msktelf.Mask = "000-000-0000";
             this.msktelf.Name = "msktelf";
             this.msktelf.Size = new System.Drawing.Size(100, 20);
-            this.msktelf.TabIndex = 4;
+            this.msktelf.TabIndex = 5;
             // 
             // txtdir
             // 
-            this.txtdir.Location = new System.Drawing.Point(359, 33);
+            this.txtdir.Location = new System.Drawing.Point(359, 30);
             this.txtdir.Name = "txtdir";
             this.txtdir.Size = new System.Drawing.Size(181, 20);
-            this.txtdir.TabIndex = 3;
+            this.txtdir.TabIndex = 4;
             // 
             // txtape
             // 
@@ -178,17 +250,20 @@
             this.txtape.Name = "txtape";
             this.txtape.Size = new System.Drawing.Size(181, 20);
             this.txtape.TabIndex = 2;
+            this.txtape.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtape_KeyPress);
             // 
             // mskced
             // 
             this.mskced.Location = new System.Drawing.Point(72, 30);
+            this.mskced.Mask = "000000000-0";
             this.mskced.Name = "mskced";
             this.mskced.Size = new System.Drawing.Size(100, 20);
             this.mskced.TabIndex = 0;
+            this.mskced.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mskced_KeyPress);
             // 
             // btncancelar
             // 
-            this.btncancelar.Location = new System.Drawing.Point(465, 155);
+            this.btncancelar.Location = new System.Drawing.Point(465, 187);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Size = new System.Drawing.Size(75, 23);
             this.btncancelar.TabIndex = 27;
@@ -197,10 +272,10 @@
             // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(384, 155);
+            this.btnguardar.Location = new System.Drawing.Point(384, 187);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(75, 23);
-            this.btnguardar.TabIndex = 26;
+            this.btnguardar.TabIndex = 8;
             this.btnguardar.Text = "Guardar";
             this.btnguardar.UseVisualStyleBackColor = true;
             this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
@@ -238,6 +313,7 @@
             this.txtnom.Name = "txtnom";
             this.txtnom.Size = new System.Drawing.Size(181, 20);
             this.txtnom.TabIndex = 1;
+            this.txtnom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnom_KeyPress);
             // 
             // label35
             // 
@@ -251,7 +327,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(301, 36);
+            this.label36.Location = new System.Drawing.Point(301, 33);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(52, 13);
             this.label36.TabIndex = 19;
@@ -267,46 +343,11 @@
             this.btnnuevo.UseVisualStyleBackColor = true;
             this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
             // 
-            // Column0
-            // 
-            this.Column0.HeaderText = "Cédula";
-            this.Column0.Name = "Column0";
-            this.Column0.ReadOnly = true;
-            this.Column0.Width = 90;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Apellido y Nombre";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Dierección";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Teléfono";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 70;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Estado";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 50;
-            // 
             // SF_Cuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 576);
+            this.ClientSize = new System.Drawing.Size(581, 582);
             this.Controls.Add(this.btnnuevo);
             this.Controls.Add(this.chkeliminados);
             this.Controls.Add(this.btnmodificar);
@@ -353,5 +394,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.TextBox txtusu;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cborol;
+        private System.Windows.Forms.Label label3;
     }
 }

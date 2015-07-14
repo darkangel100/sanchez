@@ -38,10 +38,10 @@ namespace Facturacion.Vista
         {
             try
             {
-                ClienteDB objC = new ClienteDB();
+                PersonaDB  objC = new PersonaDB();
                 int resp;
                 llenaCliente(objC);
-                resp = objC.InsertaCliente(objC.getPersona());
+                resp = objC.InsertaPersona(objC.getPersona());
                 if (resp == 0)
                 {
                     MessageBox.Show("No se ingreso datos del Cliente", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -57,7 +57,7 @@ namespace Facturacion.Vista
             }
         }
 
-        private ClienteDB llenaCliente(ClienteDB lec)
+        private PersonaDB llenaCliente(PersonaDB lec)
         {
             lec.getPersona().cedper = mskcedula.Text.Trim();
             lec.getPersona().apeper = txtape.Text.Trim();
@@ -72,8 +72,8 @@ namespace Facturacion.Vista
             try
             {
                 dgvcli.Rows.Clear();
-                ClienteDB objC = new ClienteDB();
-                objC.getPersona().ListaPersonas = objC.TraeClientes(est);
+                PersonaDB objC = new PersonaDB();
+                objC.getPersona().ListaPersonas = objC.TraePersonas(est);
                 if (objC.getPersona().ListaPersonas.Count == 0)
                 {
                     MessageBox.Show("No existen Clientes Ingresados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -89,6 +89,7 @@ namespace Facturacion.Vista
                         dgvcli.Rows[i].Cells[2].Value = objC.getPersona().ListaPersonas[i].dirper;
                         dgvcli.Rows[i].Cells[3].Value = objC.getPersona().ListaPersonas[i].telper;
                         dgvcli.Rows[i].Cells[4].Value = objC.getPersona().ListaPersonas[i].estper;
+
                     }
                 }
             }
@@ -101,10 +102,10 @@ namespace Facturacion.Vista
         {
             try
             {
-                ClienteDB objC = new ClienteDB();
+                PersonaDB objC = new PersonaDB();
                 int resp;
                 llenaCliente(objC);
-                resp = objC.ActualizaCliente(objC.getPersona());
+                resp = objC.ActualizaPersona(objC.getPersona());
                 if (resp == 0)
                 {
                     MessageBox.Show("No se modifico datos del Cliente", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -135,12 +136,12 @@ namespace Facturacion.Vista
          {
              try
              {
-                 ClienteDB objB = new ClienteDB();
+                 PersonaDB objB = new PersonaDB();
                  int resp;
                  string ced = dgvcli.Rows[fila].Cells[0].Value.ToString();
                  if (MessageBox.Show("Desea desactivar a: " + dgvcli.Rows[fila].Cells[1].Value.ToString(), "Tienda", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
                  {
-                     resp = objB.DesactivarCliente(ced);
+                     resp = objB.DesactivarPersona(ced);
                      if (resp > 0)
                      {
                          MessageBox.Show("Cliente Desactivado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -192,12 +193,12 @@ namespace Facturacion.Vista
          {
              try
              {
-                 ClienteDB objB = new ClienteDB();
+                 PersonaDB objB = new PersonaDB();
                  int resp;
                  string ced = dgvcli.Rows[fila].Cells[0].Value.ToString();
                  if (MessageBox.Show("Desea activar a: " + dgvcli.Rows[fila].Cells[1].Value.ToString(), "Tienda", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
                  {
-                     resp = objB.ActivarCliente(ced);
+                     resp = objB.ActivarPersona(ced);
                      if (resp > 0)
                      {
                          MessageBox.Show("Cliente Activado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -228,8 +229,8 @@ namespace Facturacion.Vista
          {
              try
              {
-                 ClienteDB objC = new ClienteDB();
-                 objC.setPersona(objC.TraeCliente(dgvcli.Rows[fila].Cells[0].Value.ToString()));
+                 PersonaDB objC = new PersonaDB();
+                 objC.setPersona(objC.TraePersona(dgvcli.Rows[fila].Cells[0].Value.ToString()));
                  if (objC.getPersona().cedper == "")
                  {
                      MessageBox.Show("No existe registro del Cliente", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

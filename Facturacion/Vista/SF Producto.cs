@@ -34,14 +34,13 @@ namespace Facturacion.Vista
             try
             {
                 int nro;
-                string cod = cbocat.SelectedValue.ToString();
-                ProductoDB objP = new ProductoDB();
-                nro = objP.TraeCodigo();
-                txtcod.Text = Util.codi(cod, nro);
+                ProductoDB obj = new ProductoDB();
+                nro = obj.TraeCodigo();
+                txtcod.Text = (nro + 1).ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al modificar los Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error " + ex.Message, "Tienda", MessageBoxButtons.OK);
             }
         }
 
@@ -323,6 +322,11 @@ namespace Facturacion.Vista
                 btndesactivar.Visible = false;
                 btnactivar.Visible = true;
             }
+        }
+
+        private void cbocat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

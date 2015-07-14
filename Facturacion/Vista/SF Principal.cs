@@ -72,6 +72,14 @@ namespace Facturacion.Vista
             sffaccompra.Show();
         }
 
+    
+        private void empresaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SF_Empresa sfemp = new SF_Empresa();
+            sfemp.MdiParent = this;
+            sfemp.Show();
+        }
+
         
 
     

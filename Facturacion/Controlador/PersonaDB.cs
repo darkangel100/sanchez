@@ -6,9 +6,10 @@ using MySql.Data.MySqlClient;
 using Facturacion.Modelo;
 using System.Data;
 
+
 namespace Facturacion.Controlador
 {
-    class ClienteDB
+    class PersonaDB
     {
         conexion con = new conexion();
         Persona per = null;
@@ -25,14 +26,15 @@ namespace Facturacion.Controlador
         {
             this.per = pers;
         }
-        public int InsertaCliente(Persona per)
+        public int InsertaPersona(Persona per)
         {
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
             int resp;
             try
             {
-                string sqlcad = "Insert persona Values ('" + per.cedper + "','" + per.apeper + "','" + per.nomper + "','" + per.dirper + "','" + per.telper + "','" + per.estper + "')";
+                //string sqlcad = "Insert persona Values ('" + per.cedper + "','" + per.apeper + "','" + per.nomper + "','" + per.dirper + "','" + per.telper + "','" + per.estper + "'," + per.idrol + ")";
+                string sqlcad = "Insert persona set ced_per='" + per.cedper + "', ape_per='" + per.apeper + "', nom_per='" + per.nomper + "', dir_per='" + per.dirper + "',tel_per='" + per.telper + "',est_per='" + per.estper + "',idRol=" + per.idrol + "";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
@@ -53,9 +55,9 @@ namespace Facturacion.Controlador
             per = null;
             return resp;
         }
-        public List<Persona> TraeClientes(string est)
+        public List<Persona> TraePersonas(string est)
         {
-            ClienteDB per = null;
+            PersonaDB per = null;
             List<Persona> ListaCli = new List<Persona>();
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
@@ -68,7 +70,7 @@ namespace Facturacion.Controlador
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    per = new ClienteDB();
+                    per = new PersonaDB();
                     per.getPersona().cedper = dr[0].ToString();
                     per.getPersona().apeper = dr[1].ToString();
                     per.getPersona().nomper = dr[2].ToString();
@@ -95,9 +97,9 @@ namespace Facturacion.Controlador
             cmd = null;
             return ListaCli;
         }
-        public Persona TraeCliente(string ced)
+        public Persona TraePersona(string ced)
         {
-            ClienteDB per = null;
+            PersonaDB per = null;
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
             try
@@ -109,7 +111,7 @@ namespace Facturacion.Controlador
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    per = new ClienteDB();
+                    per = new PersonaDB();
                     per.getPersona().cedper = dr[0].ToString();
                     per.getPersona().apeper = dr[1].ToString();
                     per.getPersona().nomper = dr[2].ToString();
@@ -133,7 +135,7 @@ namespace Facturacion.Controlador
             cmd = null;
             return per.getPersona();
         }
-        public int ActualizaCliente(Persona per)
+        public int ActualizaPersona(Persona per)
         {
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
@@ -161,7 +163,7 @@ namespace Facturacion.Controlador
             cmd = null;
             return resp;
         }
-        public int DesactivarCliente(string ced)
+        public int DesactivarPersona(string ced)
         {
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
@@ -188,7 +190,7 @@ namespace Facturacion.Controlador
             cmd = null;
             return resp;
         }
-        public int ActivarCliente(string ced)
+        public int ActivarPersona(string ced)
         {
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
@@ -215,5 +217,70 @@ namespace Facturacion.Controlador
             cmd = null;
             return resp;
         }
+        public int traeIdRol(string nom)//trae id de rol
+        {
+            int num = 0;
+            //RolDB r = null;
+            MySqlCommand cmd;
+            MySqlConnection cn = con.GetConnection();
+            try
+            {
+                string sqlrol = "Select * from rol where nom_rol='" + nom + "'";
+                cmd = new MySqlCommand(sqlrol, cn);
+                cmd.CommandType = CommandType.Text;
+                cn.Open();
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    num = Convert.ToInt32(dr["idRol"]);
+                }
+
+                dr.Close();
+            }
+            catch (MySqlException ex)
+            {
+                num = 0;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                num = 0;
+                throw ex;
+            }
+            cn.Close();
+            cmd = null;
+            return num;
+        }
+        public string traenumero()
+        {
+            MySqlConnection cn = con.GetConnection();
+            MySqlCommand cmd;
+            string num = "";
+            try
+            {
+                string Sqlcad = "Select max(idPersona)as num from persona";
+                cmd = new MySqlCommand(Sqlcad, cn);
+                cn.Open();
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    num = dr["num"].ToString();
+                }
+                dr.Close();
+            }
+            catch (MySqlException ex)
+            {
+                num = "";
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                num = "";
+                throw ex;
+            }
+            cn.Close();
+            cmd = null;
+            return num;
+        }//trae numrero
     }
 }

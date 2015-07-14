@@ -9,134 +9,98 @@ using System.Data;
 
 namespace Facturacion.Controlador
 {
-    class CuentaDB
+    class ProveedorDB
     {
         conexion con = new conexion();
-        Cuenta cuenta = null;
-        public Cuenta getCuenta()
+
+        Proveedor proveedor = null;
+
+        public Proveedor getProveedor()
         {
-            if (this.cuenta == null)
+            if (this.proveedor == null)
             {
-                this.cuenta = new Cuenta();
+                this.proveedor = new Proveedor();
             }
-            return this.cuenta;
+            return this.proveedor;
         }
-        public void setCuenta(Cuenta cuenta1)
+        public void setProveedor(Proveedor proveedors)
         {
-            this.cuenta = cuenta1;
+            this.proveedor = proveedors;
         }
-        public Cuenta iniciarSesion(string user, string passw)
+        public int traeId(string nom)
         {
-            Cuenta c = null;
-
-            return c;
-        }
-        public int ingresacuenta(Cuenta cuen)
-        {
-            int resp;
-            MySqlCommand cmd;
-            MySqlConnection cnn = con.GetConnection();
-            try
-            {
-
-                string comandoSql = "Insert cuenta set idPersona='" + cuen.idperCuen + "', nom_cuen='" + cuen.nomcuen + "', clave='" + cuen.Clave + "',est_cuen='" + cuen.estcuen + "'";
-
-                cmd = new MySqlCommand(comandoSql, cnn);
-                cmd.CommandType = CommandType.Text;
-                cnn.Open();
-                resp = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                resp = 0;
-                throw ex;
-            }
-            catch (Exception ex)
-            {
-                resp = 0;
-                throw ex;
-            }
-            cmd = null;
-            cnn.Close();
-            return resp;
-
-        }
-
-        public int cuentaE()
-        {
-            MySqlCommand cmd;
-            MySqlConnection cn = con.GetConnection();
-            string commandLine = "SELECT COUNT(*) FROM cuenta";
-            cmd = new MySqlCommand(commandLine, cn);
-            cmd.CommandType = CommandType.Text;
-            cn.Open();
-            return Convert.ToInt32(cmd.ExecuteScalar());
-
-        }
-        public Cuenta TraeContra(string ced)
-        {
-            CuentaDB per = null;
+            int num = 0;
+            //RolDB r = null;
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
             try
             {
-                string sqlcad = "Select * from cuenta Where nom_cuen='" + ced + "'";
-                cmd = new MySqlCommand(sqlcad, cn);
+                string sqlrol = "Select * from proveedor where ìdPersona='" + nom + "'";
+                cmd = new MySqlCommand(sqlrol, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    per = new CuentaDB();
-                    per.getCuenta().nomcuen = dr[0].ToString();
-                    per.getCuenta().Clave = dr[1].ToString();
-
-
+                    num = Convert.ToInt32(dr["idPersona"]);
                 }
+
                 dr.Close();
             }
             catch (MySqlException ex)
             {
-                per = null;
+                num = 0;
                 throw ex;
             }
             catch (Exception ex)
             {
-                per = null;
+                num = 0;
                 throw ex;
             }
             cn.Close();
             cmd = null;
-            return per.getCuenta();
-        }
-        public int llenacuenta(Cuenta cuen)
-        {
+            return num;
 
+        }
+
+        public int traeidEmpresa(string nom)
+        {
+            int num = 0;
+            //RolDB r = null;
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
-            int resp;
             try
             {
-                string sqlcad = "Insert cuenta set idPersona='" + cuen.Persona.idper + "', nom_cuen='" + cuen.nomcuen + "', clave='" + cuen.Clave + "',est_cuen='" + cuen.estcuen + "'";
-                cmd = new MySqlCommand(sqlcad, cn);
+                string sqlrol = "Select * from empresa where nom_emp='" + nom + "'";
+                cmd = new MySqlCommand(sqlrol, cn);
+                cmd.CommandType = CommandType.Text;
                 cn.Open();
-                resp = cmd.ExecuteNonQuery();
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    num = Convert.ToInt32(dr["idempresa"]);
+                }
+
+                dr.Close();
             }
             catch (MySqlException ex)
             {
-                resp = 0;
+                num = 0;
                 throw ex;
             }
             catch (Exception ex)
             {
-                resp = 0;
+                num = 0;
                 throw ex;
             }
             cn.Close();
             cmd = null;
-            return resp;
+            return num;
+
         }
-        public int ActualizaCuenta(Cuenta cuen)
+
+
+        public int Actualizaprovedor(Proveedor per)//metodo para modificar Cliente
         {
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
@@ -144,7 +108,7 @@ namespace Facturacion.Controlador
             try
             {
 
-                string sqlcad = "Update cuenta set nom_cuen='" + cuen.nomcuen + "',clave='" + cuen.Clave + "',est_cuen='" + cuen.estcuen + "' WHERE idPersona='" + cuen.idperCuen + "'";
+                string sqlcad = "Update proveedor set idEmpresa='" + per.idempreProvee + "' WHERE idPersona='" + per.idperProvee + "'";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
@@ -162,6 +126,35 @@ namespace Facturacion.Controlador
             }
             cn.Close();
             cmd = null;
+            return resp;
+        }
+        public int InsertaProveedor(Proveedor per)
+        {
+            MySqlCommand cmd;
+            MySqlConnection cn = con.GetConnection();
+            int resp;
+            try
+            {
+                string sqlcad = "Insert proveedor set  idPersona='" + per.idperProvee + "', idEmpresa='" + per.idempreProvee + "'est_prove='" + per.estprovee + "'";
+                // string sqlcad = "Insert proveedor Values ('" + per.Ruc + "','" + per.Id_persona + "','" + per.IdEmpresa+  "')";
+                cmd = new MySqlCommand(sqlcad, cn);
+                cmd.CommandType = CommandType.Text;
+                cn.Open();
+                resp = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            cn.Close();
+            cmd = null;
+            per = null;
             return resp;
         }
     }

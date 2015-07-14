@@ -40,6 +40,7 @@
             this.anularFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empresaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@
             this.usuarioToolStripMenuItem,
             this.personaToolStripMenuItem,
             this.proveedorToolStripMenuItem,
+            this.empresaToolStripMenuItem1,
             this.productoToolStripMenuItem,
             this.categoriaToolStripMenuItem});
             this.arcchivoToolStripMenuItem.Name = "arcchivoToolStripMenuItem";
@@ -140,6 +142,13 @@
             this.facturaToolStripMenuItem.Text = "Factura Compra";
             this.facturaToolStripMenuItem.Click += new System.EventHandler(this.facturaToolStripMenuItem_Click);
             // 
+            // empresaToolStripMenuItem1
+            // 
+            this.empresaToolStripMenuItem1.Name = "empresaToolStripMenuItem1";
+            this.empresaToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.empresaToolStripMenuItem1.Text = "Empresa";
+            this.empresaToolStripMenuItem1.Click += new System.EventHandler(this.empresaToolStripMenuItem1_Click);
+            // 
             // SF_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,5 +181,6 @@
         private System.Windows.Forms.ToolStripMenuItem anularFacturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facturaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem empresaToolStripMenuItem1;
     }
 }

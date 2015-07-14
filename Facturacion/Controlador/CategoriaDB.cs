@@ -38,7 +38,7 @@ namespace Facturacion.Controlador
             MySqlCommand cmd;
             try
             {
-                string sqlcad = "Select max(SUBSTRING(idCat,1)) as nro from categoria";
+                string sqlcad = "Select max(idCat) as nro from categoria";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cn.Open();
                 MySqlDataReader dr = cmd.ExecuteReader();

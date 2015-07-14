@@ -32,7 +32,7 @@
             this.btnacpertar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtced = new System.Windows.Forms.TextBox();
+            this.txtusu = new System.Windows.Forms.TextBox();
             this.txtclave = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -69,17 +69,17 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(21, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Cédula";
+            this.label3.Text = "Usuario";
             // 
-            // txtced
+            // txtusu
             // 
-            this.txtced.Location = new System.Drawing.Point(81, 12);
-            this.txtced.MaxLength = 10;
-            this.txtced.Name = "txtced";
-            this.txtced.Size = new System.Drawing.Size(149, 20);
-            this.txtced.TabIndex = 12;
+            this.txtusu.Location = new System.Drawing.Point(81, 12);
+            this.txtusu.MaxLength = 10;
+            this.txtusu.Name = "txtusu";
+            this.txtusu.Size = new System.Drawing.Size(149, 20);
+            this.txtusu.TabIndex = 12;
             // 
             // txtclave
             // 
@@ -99,7 +99,7 @@
             this.Controls.Add(this.btnacpertar);
             this.Controls.Add(this.txtclave);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtced);
+            this.Controls.Add(this.txtusu);
             this.Controls.Add(this.label3);
             this.Name = "SF_Acceso";
             this.Text = "SF_Acceso";
@@ -115,7 +115,7 @@
         private System.Windows.Forms.Button btnacpertar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtced;
+        private System.Windows.Forms.TextBox txtusu;
         private System.Windows.Forms.TextBox txtclave;
     }
 }

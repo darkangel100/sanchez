@@ -52,15 +52,22 @@
   <ItemGroup>
     <Compile Include="conexion.cs" />
     <Compile Include="Controlador\CategoriaDB.cs" />
-    <Compile Include="Controlador\ClienteDB.cs" />
     <Compile Include="Controlador\CuentaDB.cs" />
+    <Compile Include="Controlador\EmpresaDB.cs" />
+    <Compile Include="Controlador\PersonaDB.cs" />
     <Compile Include="Controlador\ProductoDB.cs" />
+    <Compile Include="Controlador\ProveedorDB.cs" />
+    <Compile Include="Controlador\RolDB.cs" />
+    <Compile Include="Controlador\UsuarioDB.cs" />
     <Compile Include="Controlador\Util.cs" />
     <Compile Include="Modelo\Categoria.cs" />
     <Compile Include="Modelo\Cuenta.cs" />
+    <Compile Include="Modelo\Empresa.cs" />
     <Compile Include="Modelo\Persona.cs" />
     <Compile Include="Modelo\Producto.cs" />
     <Compile Include="Modelo\Proveedor.cs" />
+    <Compile Include="Modelo\Rol.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\SF Acceso.cs">
@@ -68,6 +75,12 @@
     </Compile>
     <Compile Include="Vista\SF Acceso.Designer.cs">
       <DependentUpon>SF Acceso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Administrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Administrador.Designer.cs">
+      <DependentUpon>SF Administrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\SF Anular Factura.cs">
       <SubType>Form</SubType>
@@ -98,6 +111,12 @@
     </Compile>
     <Compile Include="Vista\SF Cuenta.Designer.cs">
       <DependentUpon>SF Cuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\SF Empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\SF Empresa.Designer.cs">
+      <DependentUpon>SF Empresa.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\SF Facturacion.cs">
       <SubType>Form</SubType>
@@ -135,6 +154,9 @@
     <EmbeddedResource Include="Vista\SF Acceso.resx">
       <DependentUpon>SF Acceso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Administrador.resx">
+      <DependentUpon>SF Administrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\SF Anular Factura.resx">
       <DependentUpon>SF Anular Factura.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\SF Cuenta.resx">
       <DependentUpon>SF Cuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\SF Empresa.resx">
+      <DependentUpon>SF Empresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\SF Facturacion.resx">
       <DependentUpon>SF Facturacion.cs</DependentUpon>

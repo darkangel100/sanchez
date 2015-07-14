@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Facturacion.Controlador;
+using Facturacion.Vista;
 
 namespace Facturacion.Vista
 {
@@ -19,36 +20,55 @@ namespace Facturacion.Vista
 
         private void btnacpertar_Click(object sender, EventArgs e)
         {
-            SF_Principal sfprin = new SF_Principal();
-            sfprin.ShowDialog();
-            //verificar();
-            
+            //SF_Principal prin = new SF_Principal();
+            //prin.ShowDialog();
+            //this.Close();
+            verificar();
         }
-        //private void verificar()
-        //{
-        //    try
-        //    {
-        //        CuentaDB objB = new CuentaDB();
-        //        if (objB.getPersona().cedper.Equals(txtced.Text) && objB.getPersona().Cuenta.clacuent.Equals(txtclave.Text))
-        //        {
-        //           SF_Principal sfprin = new SF_Principal();
-        //           sfprin.ShowDialog();
-        //            this.Close();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Cedula o Clave Incorrectas", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error: " + ex.Message, "Biblioteca", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-        //    }
-        //}
+        private void verificar()
+        {
+            if (txtusu.Text.Trim().Length > 0 && txtclave.Text.Trim().Length > 0)
+            {
+                try
+                {
+                    CuentaDB objB = new CuentaDB();
+                    objB.setCuenta(objB.TraeContra(txtusu.Text));
+
+                    if (objB.getCuenta().nomcuen.Equals(txtusu.Text) && objB.getCuenta().Clave.Equals(txtclave.Text))
+                    {
+                        SF_Principal prin = new SF_Principal();
+                        prin.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cedula o Clave Incorrectas", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Contraseña o Usuario Incorrecta " + ex.Message, "Biblioteca", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txtusu.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Deve ingresar Llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtusu.Focus();
+            }
+        }
 
         private void SF_Acceso_Load(object sender, EventArgs e)
         {
-          
+            ////lblFecha.Text = DateTime.Now.ToLongDateString();
+            ////lblHora.Text = DateTime.Now.ToLongTimeString();
+            CuentaDB objC = new CuentaDB();
+            int numeroC = objC.cuentaE();
+            if (numeroC == 0)
+            {
+                SF_Administrador usu = new SF_Administrador();
+                usu.Show();
+            }
         }
       
     }
