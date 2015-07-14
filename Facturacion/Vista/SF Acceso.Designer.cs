@@ -50,7 +50,7 @@
             this.btnacpertar.Location = new System.Drawing.Point(34, 113);
             this.btnacpertar.Name = "btnacpertar";
             this.btnacpertar.Size = new System.Drawing.Size(93, 25);
-            this.btnacpertar.TabIndex = 15;
+            this.btnacpertar.TabIndex = 1;
             this.btnacpertar.Text = "&Aceptar";
             this.btnacpertar.UseVisualStyleBackColor = true;
             this.btnacpertar.Click += new System.EventHandler(this.btnacpertar_Click);
@@ -80,6 +80,7 @@
             this.txtusu.Name = "txtusu";
             this.txtusu.Size = new System.Drawing.Size(149, 20);
             this.txtusu.TabIndex = 12;
+            this.txtusu.Text = "jorg";
             // 
             // txtclave
             // 
@@ -89,6 +90,7 @@
             this.txtclave.PasswordChar = '*';
             this.txtclave.Size = new System.Drawing.Size(148, 20);
             this.txtclave.TabIndex = 14;
+            this.txtclave.Text = "123";
             // 
             // SF_Acceso
             // 

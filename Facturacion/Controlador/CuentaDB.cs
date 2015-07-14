@@ -88,8 +88,44 @@ namespace Facturacion.Controlador
                 while (dr.Read())
                 {
                     per = new CuentaDB();
-                    per.getCuenta().nomcuen = dr[0].ToString();
-                    per.getCuenta().Clave = dr[1].ToString();
+                    per.getCuenta().nomcuen = dr[2].ToString();
+                    per.getCuenta().Clave = dr[3].ToString();
+
+
+                }
+                dr.Close();
+            }
+            catch (MySqlException ex)
+            {
+                per = null;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                per = null;
+                throw ex;
+            }
+            cn.Close();
+            cmd = null;
+            return per.getCuenta();
+        }
+        public Cuenta Traecuenta(string ced)
+        {
+            CuentaDB per = null;
+            MySqlCommand cmd;
+            MySqlConnection cn = con.GetConnection();
+            try
+            {
+                string sqlcad = "Select * from cuenta Where idPersona='" + ced + "'";
+                cmd = new MySqlCommand(sqlcad, cn);
+                cmd.CommandType = CommandType.Text;
+                cn.Open();
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    per = new CuentaDB();
+                    per.getCuenta().nomcuen = dr[2].ToString();
+                    per.getCuenta().Clave = dr[3].ToString();
 
 
                 }

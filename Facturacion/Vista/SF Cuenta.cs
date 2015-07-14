@@ -23,8 +23,29 @@ namespace Facturacion.Vista
         int fila = -1;
         private void SF_Cuenta_Load(object sender, EventArgs e)
         {
-            
+            llenaRol(cborol);
         }
+        #region
+        private void llenaRol(ComboBox cbo)//Llena combobox de roles
+        {
+            try
+            {
+                RolDB objC = new RolDB();
+                objC.getRol().ListaRol = objC.TraeRol();
+                if (objC.getRol().ListaRol.Count == 0)
+                {
+                    MessageBox.Show("No existen de Usuarios", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                cborol.DisplayMember = "nom_rol";
+                cborol.ValueMember = "idRol";
+                cbo.DataSource = objC.getRol().ListaRol;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Al Presentar los Datos," + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
         //boton nuevo
         #region
         private void btnnuevo_Click(object sender, EventArgs e)
@@ -93,6 +114,7 @@ namespace Facturacion.Vista
                     MessageBox.Show("Usuario Ingresado", "Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     estado = "";
+                    llenaUsuario("A");
                     Util.limpiar(groupBox2.Controls);
                 }
             }

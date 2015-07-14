@@ -85,7 +85,7 @@ namespace Facturacion.Controlador
         }
         public List<Rol> TraeRol()
         {
-            Rol cat = null;
+            RolDB cat = null;
             List<Rol> ListaRol = new List<Rol>();
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
@@ -98,10 +98,10 @@ namespace Facturacion.Controlador
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    cat = new Rol();
-                    cat.nomrol = dr["nom_rol"].ToString();
-                    cat.idrol = Convert.ToInt32(dr["idRol"]);
-                    ListaRol.Add(cat);
+                    cat = new RolDB();
+                    cat.getRol().idrol = Convert.ToInt32(dr[0].ToString());
+                    cat.getRol().nomrol = dr[1].ToString();
+                    ListaRol.Add(cat.getRol());
                 }
                 dr.Close();
             }

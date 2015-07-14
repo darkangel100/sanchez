@@ -20,9 +20,6 @@ namespace Facturacion.Vista
 
         private void btnacpertar_Click(object sender, EventArgs e)
         {
-            //SF_Principal prin = new SF_Principal();
-            //prin.ShowDialog();
-            //this.Close();
             verificar();
         }
         private void verificar()
@@ -53,7 +50,7 @@ namespace Facturacion.Vista
             }
             else
             {
-                MessageBox.Show("Deve ingresar Llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe Llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtusu.Focus();
             }
         }
