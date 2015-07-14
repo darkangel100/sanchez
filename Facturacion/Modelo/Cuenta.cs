@@ -7,13 +7,73 @@ namespace Facturacion.Modelo
 {
     class Cuenta: Persona
     {
-        private string cla_cuent;
+        private int id_cuenta;
 
-        public string clacuent
+        public int idcuenta
         {
-            get { return cla_cuent; }
-            set { cla_cuent = value; }
+            get { return id_cuenta; }
+            set { id_cuenta = value; }
         }
+
+        private string nom_cuen;
+
+        public string nomcuen
+        {
+            get { return nom_cuen; }
+            set { nom_cuen = value; }
+        }
+        private string clave;
+
+        public string Clave
+        {
+            get { return clave; }
+            set { clave = value; }
+        }
+        private Persona persona;
+
+        public Persona Persona
+        {
+            get { return persona; }
+            set { persona = value; }
+        }
+
+        private DateTime ultimo_acesos;
+
+        public DateTime ultimoacceso
+        {
+            get { return ultimo_acesos; }
+            set { ultimo_acesos = value; }
+        }
+
+        private string est_cuen;
+
+        public string estcuen
+        {
+            get { return est_cuen; }
+            set { est_cuen = value; }
+        }
+
+        private int id_perCuen;
+
+        public int idperCuen
+        {
+            get { return id_perCuen; }
+            set { id_perCuen = value; }
+        }
+
+        private List<Cuenta> listacuentas = new List<Cuenta>();
+
+       
+
+
+        
+
+     
+        
+
+
+
+      
        
     }
 }
