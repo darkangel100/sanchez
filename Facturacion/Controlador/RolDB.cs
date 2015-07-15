@@ -91,7 +91,7 @@ namespace Facturacion.Controlador
             MySqlConnection cn = con.GetConnection();
             try
             {
-                string sqlcad = "Select * from rol where idRol=1||idRol=2 order by nom_rol";
+                string sqlcad = "Select * from rol where idRol= 1 || idRol= 2 order by nom_rol";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
