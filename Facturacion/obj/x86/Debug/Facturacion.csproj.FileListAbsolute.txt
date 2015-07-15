@@ -125,3 +125,5 @@ C:\Users\estefania\Desktop\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vis
 C:\Users\estefania\Desktop\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Producto.resources
 C:\Users\estefania\Desktop\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Proveedor.resources
 C:\Users\estefania\Desktop\Facturacion\Facturacion\obj\x86\Debug\Facturacion.csproj.GenerateResource.Cache
+C:\Users\estefania\Desktop\ANDREA\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Administrador.resources
+C:\Users\estefania\Desktop\ANDREA\Facturacion\Facturacion\obj\x86\Debug\Facturacion.Vista.SF_Empresa.resources
