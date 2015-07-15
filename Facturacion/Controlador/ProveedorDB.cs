@@ -35,7 +35,7 @@ namespace Facturacion.Controlador
             MySqlConnection cn = con.GetConnection();
             try
             {
-                string sqlrol = "Select * from proveedor where ìdPersona='" + nom + "'";
+                string sqlrol = "Select * from proveedor where idPersona='" + nom + "'";
                 cmd = new MySqlCommand(sqlrol, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
@@ -136,7 +136,7 @@ namespace Facturacion.Controlador
             int resp;
             try
             {
-                string sqlcad = "Insert proveedor set  idPersona='" + per.idperProvee + "', idEmpresa='" + per.idempreProvee + "'est_prove='" + per.estprovee + "'";
+                string sqlcad = "Insert proveedor set  idPersona='" + per.idperProvee + "', idEmpresa='" + per.idempreProvee + "',ruc_provee='" + per.RucProveedor + "',est_provee='" + per.estprovee + "'";
                 // string sqlcad = "Insert proveedor Values ('" + per.Ruc + "','" + per.Id_persona + "','" + per.IdEmpresa+  "')";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;

@@ -79,7 +79,7 @@ namespace Facturacion.Vista
                 }
                 else
                 {
-                    MessageBox.Show("Cliente Modificado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Empresa Modificada", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     estado = "";
                     llenaEmpresas();
                 }
@@ -224,6 +224,7 @@ namespace Facturacion.Vista
         private void btnmodificar_Click(object sender, EventArgs e)
         {
             modificar();
+            estado = "E"; 
         }
      
         private void modificar()
@@ -232,7 +233,7 @@ namespace Facturacion.Vista
             {
                 EmpresaDB objE = new EmpresaDB();
                 objE.setEmpresa(objE.TraeEmpresa((dgvempresa.Rows[fila].Cells[0].Value.ToString()))); 
-                if (objE.getEmpresa().nomemp=="")
+                if (objE.getEmpresa().idEmpresa==0)
                 {
                     MessageBox.Show("No existe registro de la Empresa", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -242,8 +243,8 @@ namespace Facturacion.Vista
                     txtnom.Text = objE.getEmpresa().nomemp;
                     txtdir.Text = objE.getEmpresa().diremp;
                     msktelf.Text = objE.getEmpresa().telemp;
-                   
                     estado = "E";
+                
                     groupBox2.Enabled = true;
                     txtnom.Focus();
                 }
@@ -257,6 +258,11 @@ namespace Facturacion.Vista
         private void dgvempresa_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             fila = dgvempresa.CurrentRow.Index;
+        }
+
+        private void dgvempresa_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
         }
        
     }

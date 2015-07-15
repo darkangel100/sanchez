@@ -67,6 +67,11 @@ namespace Facturacion.Vista
                 usu.Show();
             }
         }
+
+        private void txtusu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
       
     }
 }

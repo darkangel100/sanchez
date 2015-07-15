@@ -206,6 +206,7 @@
             this.dgvempresa.Size = new System.Drawing.Size(443, 150);
             this.dgvempresa.TabIndex = 61;
             this.dgvempresa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvempresa_CellClick_1);
+            this.dgvempresa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvempresa_CellContentClick);
             // 
             // Column1
             // 

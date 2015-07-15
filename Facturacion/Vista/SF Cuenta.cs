@@ -289,6 +289,12 @@ namespace Facturacion.Vista
             fila = dgvcuenta.CurrentRow.Index;
         }
 
+        private void dgvcuenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            
+        }
+
 
 
     }

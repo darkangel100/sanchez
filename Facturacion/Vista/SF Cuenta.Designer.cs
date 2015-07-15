@@ -108,6 +108,7 @@
             this.dgvcuenta.Size = new System.Drawing.Size(555, 254);
             this.dgvcuenta.TabIndex = 54;
             this.dgvcuenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcuenta_CellClick);
+            this.dgvcuenta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcuenta_CellContentClick);
             // 
             // Column0
             // 

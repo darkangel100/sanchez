@@ -29,8 +29,7 @@ namespace Facturacion.Vista
             estado = "N";
             Util.limpiar(groupBox3.Controls);
             groupBox3.Enabled = true;
-            txtnom.Enabled = true;
-            txtnom.Focus();
+            mskruc.Focus();
             //codigo();
         }
         #endregion
@@ -54,10 +53,10 @@ namespace Facturacion.Vista
                 Adiciona();
             }
 
-            //if (estado == "E")
-            //{
-            //    Editar();
-            //}
+            if (estado == "E")
+            {
+                Editar();
+            }
             //llenaPro("A");
             //txtcod.Enabled = false;
             //cbocat.Enabled = true;
@@ -98,6 +97,7 @@ namespace Facturacion.Vista
             lper.getPersona().dirper = txtdir.Text.Trim();
             lper.getPersona().telper = msktelf.Text.Trim();
             lper.getPersona().idrol = int.Parse("3");
+            lper.getPersona().estper = "A";
             return lper;
         }
 
@@ -114,7 +114,60 @@ namespace Facturacion.Vista
 
         private void SF_Proveedor_Load(object sender, EventArgs e)
         {
-            //llenaempresa("A");
+            llenaempresa();
+        }
+        private void llenaempresa()
+        {
+
+            try
+            {
+                EmpresaDB objE = new EmpresaDB();
+                objE.getEmpresa().ListaEmpresas = objE.TraeEmpresas();
+                if (objE.getEmpresa().ListaEmpresas.Count == 0)
+                {
+                    MessageBox.Show("No existen registros de Categorias", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                cboemp.DisplayMember = "nomemp";
+                cboemp.ValueMember = "idempresa";
+                cboemp.DataSource = objE.getEmpresa().ListaEmpresas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Al Presentar los Datos," + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Editar()//meto para modificar proveedor
+        {
+            try
+            {
+                PersonaDB objC = new PersonaDB();
+                ProveedorDB objPro = new ProveedorDB();
+                int resp;
+                int resp2;
+                llenaPersona(objC);
+                llenaProvee(objPro);
+                resp = objC.ActualizaPersona(objC.getPersona());
+                resp2 = objPro.Actualizaprovedor(objPro.getProveedor());
+
+                if (resp == 0)
+                {
+                    MessageBox.Show("No se modifico datos del Proveedor", "Koreano-Chino", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Proveedor Modificado", "Koreano-Chino", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Ingresar Datos," + ex.Message, "Koreano-Chino", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btmodificar_Click(object sender, EventArgs e)
+        {
+
         }
         //private void llenaempresa(string est)
         //{

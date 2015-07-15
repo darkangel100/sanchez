@@ -81,6 +81,7 @@
             this.txtusu.Size = new System.Drawing.Size(149, 20);
             this.txtusu.TabIndex = 12;
             this.txtusu.Text = "jorg";
+            this.txtusu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtusu_KeyPress);
             // 
             // txtclave
             // 

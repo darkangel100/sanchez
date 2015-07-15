@@ -67,7 +67,7 @@ namespace Facturacion.Controlador
             try
             {
 
-                string sqlcad = "Update empresa set nom_emp='" + emp.nomemp + "',dir_emp='" + emp.diremp + "',tel_emp='" + emp.telemp + "',est_emp='" + emp.estemp +  "' WHERE idEmpresa='" + emp.idEmpresa + "'";
+                string sqlcad = "Update empresa set dir_emp='" + emp.diremp + "',tel_emp='" + emp.telemp + "',est_emp='" + emp.estemp +  "' WHERE nom_emp='" + emp.nomemp + "'";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
@@ -135,7 +135,7 @@ namespace Facturacion.Controlador
             MySqlConnection cn = con.GetConnection();
             try
             {
-                string sqlcad = "Select * from empresa Where idEmpresa='" + ced + "'";
+                string sqlcad = "Select * from empresa Where nom_emp='" + ced + "'";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
