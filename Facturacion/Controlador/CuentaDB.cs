@@ -11,7 +11,7 @@ namespace Facturacion.Controlador
 {
     class CuentaDB
     {
-        conexion con = new conexion();
+       conexion con = new conexion();
         Cuenta cuenta = null;
         public Cuenta getCuenta()
         {
