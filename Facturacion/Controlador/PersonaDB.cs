@@ -34,7 +34,7 @@ namespace Facturacion.Controlador
             try
             {
                 //string sqlcad = "Insert persona Values ('" + per.cedper + "','" + per.apeper + "','" + per.nomper + "','" + per.dirper + "','" + per.telper + "','" + per.estper + "'," + per.idrol + ")";
-                string sqlcad = "Insert persona set ced_per='" + per.cedper + "', ape_per='" + per.apeper + "', nom_per='" + per.nomper + "', dir_per='" + per.dirper + "',tel_per='" + per.telper + "',est_per='" + per.estper + "',idRol=" + per.idrol + "";
+                string sqlcad = "Insert persona set ced_per='" + per.cedper + "', ape_per='" + per.apeper + "', nom_per='" + per.nomper + "', dir_per='" + per.dirper + "',tel_per='" + per.telper + "',est_per='" + per.estper + "',idRol= " + per.idrol + "";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
@@ -63,7 +63,7 @@ namespace Facturacion.Controlador
             MySqlConnection cn = con.GetConnection();
             try
             {
-                string sqlcad = "Select * from persona where est_per='" + est + "' order by ape_per";
+                string sqlcad = " select * from persona where idRol=0 and est_per= '"+ est + "'";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
@@ -71,13 +71,12 @@ namespace Facturacion.Controlador
                 while (dr.Read())
                 {
                     per = new PersonaDB();
-                    per.getPersona().cedper = dr[0].ToString();
-                    per.getPersona().apeper = dr[1].ToString();
-                    per.getPersona().nomper = dr[2].ToString();
-                    per.getPersona().dirper = dr[3].ToString();
-                    per.getPersona().telper = dr[4].ToString();
-                    per.getPersona().estper = dr[5].ToString();
-
+                    per.getPersona().cedper = dr[1].ToString();
+                    per.getPersona().apeper = dr[2].ToString();
+                    per.getPersona().nomper = dr[3].ToString();
+                    per.getPersona().dirper = dr[4].ToString();
+                    per.getPersona().telper = dr[5].ToString();
+                    per.getPersona().estper = dr[6].ToString();
                     per.getPersona().Nombre = per.getPersona().apeper + " " + per.getPersona().nomper;
                     ListaCli.Add(per.getPersona());
                 }
@@ -112,12 +111,12 @@ namespace Facturacion.Controlador
                 while (dr.Read())
                 {
                     per = new PersonaDB();
-                    per.getPersona().cedper = dr[0].ToString();
-                    per.getPersona().apeper = dr[1].ToString();
-                    per.getPersona().nomper = dr[2].ToString();
-                    per.getPersona().dirper = dr[3].ToString();
-                    per.getPersona().telper = dr[4].ToString();
-                    per.getPersona().estper = dr[5].ToString();
+                    per.getPersona().cedper = dr[1].ToString();
+                    per.getPersona().apeper = dr[2].ToString();
+                    per.getPersona().nomper = dr[3].ToString();
+                    per.getPersona().dirper = dr[4].ToString();
+                    per.getPersona().telper = dr[5].ToString();
+                    per.getPersona().estper = dr[6].ToString();
                 }
                 dr.Close();
             }
@@ -258,7 +257,7 @@ namespace Facturacion.Controlador
             string num = "";
             try
             {
-                string Sqlcad = "Select max(idPersona)as num from persona";
+                string Sqlcad = "Select max(idPersona) as num from persona";
                 cmd = new MySqlCommand(Sqlcad, cn);
                 cn.Open();
                 MySqlDataReader dr = cmd.ExecuteReader();

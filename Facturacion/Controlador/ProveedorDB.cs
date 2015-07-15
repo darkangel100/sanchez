@@ -78,7 +78,7 @@ namespace Facturacion.Controlador
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    num = Convert.ToInt32(dr["idempresa"]);
+                    num = Convert.ToInt32(dr["idEmpresa"]);
                 }
 
                 dr.Close();
@@ -128,6 +128,7 @@ namespace Facturacion.Controlador
             cmd = null;
             return resp;
         }
+
         public int InsertaProveedor(Proveedor per)
         {
             MySqlCommand cmd;
@@ -157,5 +158,6 @@ namespace Facturacion.Controlador
             per = null;
             return resp;
         }
+     
     }
 }

@@ -19,6 +19,9 @@ namespace Facturacion.Vista
         }
         string estado = "";
         int fila = -1;
+        public int id_persona;
+        string num;
+        
         //boton nuevo
         #region
         private void btnnuevo_Click(object sender, EventArgs e)
@@ -35,10 +38,22 @@ namespace Facturacion.Vista
         #region
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            //if (estado == "N")
-            //{
-            //    Adiciona();
-            //}
+            PersonaDB objP = new PersonaDB();
+            num = objP.traenumero();
+            if (num.Equals(""))
+            {
+                id_persona = 1;
+            }
+            else
+            {
+                id_persona = Convert.ToInt32(num);
+                id_persona++;
+            }
+            if (estado == "N")
+            {
+                Adiciona();
+            }
+
             //if (estado == "E")
             //{
             //    Editar();
@@ -47,55 +62,79 @@ namespace Facturacion.Vista
             //txtcod.Enabled = false;
             //cbocat.Enabled = true;
         }
-        //private void Adiciona()
+        private void Adiciona()
+        {
+
+            try
+            {
+                int resp = 0;
+                int resp1 = 0;  
+                PersonaDB objP = new PersonaDB();
+                llenaPersona(objP);
+                ProveedorDB objPro = new ProveedorDB();
+                llenaProvee(objPro);
+                resp = objP.InsertaPersona(objP.getPersona());
+                resp1 = objPro.InsertaProveedor(objPro.getProveedor());
+                if (resp == 0 || resp1 == 0)
+                {
+                    MessageBox.Show("No se ingreso datos de Proveedor", "Koreano-Chino", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if (resp == 1 & resp1 == 1)
+                {
+                    MessageBox.Show("Proveedor Ingresado", "Koreano-Chino", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Ingresar Datos," + ex.Message, "Ventas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private PersonaDB llenaPersona(PersonaDB lper)
+        {
+            lper.getPersona().cedper = txtced.Text.Trim();
+            lper.getPersona().Nombre = txtnom.Text.Trim();
+            lper.getPersona().apeper = txtape.Text.Trim();
+            lper.getPersona().dirper = txtdir.Text.Trim();
+            lper.getPersona().telper = msktelf.Text.Trim();
+            lper.getPersona().idrol = int.Parse("3");
+            return lper;
+        }
+
+        private ProveedorDB llenaProvee(ProveedorDB lpro)
+        {
+
+            lpro.getProveedor().RucProveedor = mskruc.Text.Trim();
+            lpro.getProveedor().idperProvee = id_persona;
+            lpro.getProveedor().idempreProvee = lpro.traeidEmpresa(cboemp.Text.ToString());
+            lpro.getProveedor().estprovee = "A";
+            return lpro;
+        }
+        #endregion
+
+        private void SF_Proveedor_Load(object sender, EventArgs e)
+        {
+            //llenaempresa("A");
+        }
+        //private void llenaempresa(string est)
         //{
+
         //    try
         //    {
-        //        int resp;
-        //        int resp2;
-        //        PersonaDB objU = new PersonaDB();
-        //        RolDB rol = new RolDB();
-        //        ProveedorDB objC = new ProveedorDB();
-        //        llenaPersona(objU);
-        //        llenaProvee(objC);
-        //        resp = objU.InsertaPersona(objU.getPersona());
-        //        resp2 = objC.ingr(objC.getCuenta());
-        //        if (resp == 0 || resp2 == 0)
+        //        EmpresaDB objE = new EmpresaDB();
+        //        objE.getEmpresa().ListaEmpresas = objE.TraeEmpresas(est);
+        //        if (objE.getEmpresa().ListaEmpresas.Count == 0)
         //        {
-        //            MessageBox.Show("No se ingreso datos de Usuario", "Ventas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //            MessageBox.Show("No existen registros de Categorias", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         //        }
-        //        if (resp == 1 && resp2 == 1)
-        //        {
-        //            MessageBox.Show("Usuario Ingresado", "Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        //            estado = "";
-        //            Util.limpiar(groupBox2.Controls);
-        //        }
+        //        cboemp.DisplayMember = "nombreEmpresa";
+        //        cboemp.ValueMember = "idempresa";
+        //        cboemp.DataSource = objE.getEmpresa().ListaEmpresas;
         //    }
         //    catch (Exception ex)
         //    {
-        //        MessageBox.Show("Error al Ingresar Datos," + ex.Message, "Ventas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        MessageBox.Show("Error Al Presentar los Datos," + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //    }
         //}
-        //private PersonaDB llenaPersona(PersonaDB lper)
-        //{
-        //    lper.getPersona().cedper = mskruc.Text.Trim();
-        //    lper.getPersona().nomper = txtnom.Text.Trim();
-        //    lper.getPersona().apeper = txtape.Text.Trim();
-        //    lper.getPersona().dirper = txtdir.Text.Trim();
-        //    lper.getPersona().telper = msktelf.Text.Trim();
-        //    lper.getPersona().idrol = lper.traeIdRol("proveedor");
-        //    lper.getPersona().estper = "A";
-        //    return lper;
-        //}
-
-        private ProveedorDB llenaProvee(ProveedorDB lcue)
-        {
-
-            lcue.getProveedor().idempreProvee= cboemp.SelectedValue.ToString(); 
-            lcue.getProveedor().estprovee = "A";
-            return lcue;
-        }
-        #endregion
     }
 }

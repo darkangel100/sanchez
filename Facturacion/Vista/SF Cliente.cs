@@ -65,6 +65,7 @@ namespace Facturacion.Vista
             lec.getPersona().dirper = txtdir.Text.Trim();
             lec.getPersona().telper = msktelf.Text.Trim();
             lec.getPersona().estper = "A";
+            lec.getPersona().idrol = 0;
             return lec;
         }
         public void llenaPersona(string est)

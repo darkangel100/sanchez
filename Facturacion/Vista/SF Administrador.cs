@@ -37,11 +37,10 @@ namespace Facturacion.Vista
                 int resp2;
                 PersonaDB objU = new PersonaDB();
                 CuentaDB objC = new CuentaDB();
-                RolDB rol = new RolDB();
                 llenapersona(objU);
                 llenaCuenta(objC);
                 resp = objU.InsertaPersona(objU.getPersona());
-                resp2 = objC.ingresacuenta(objC.getCuenta());
+                resp2 = objC.llenacuenta(objC.getCuenta());
                 if (resp == 0 || resp2 == 0)
                 {
                     MessageBox.Show("No se ingreso datos de Usuario", "Ventas", MessageBoxButtons.OK, MessageBoxIcon.Warning);

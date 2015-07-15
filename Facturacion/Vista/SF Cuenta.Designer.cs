@@ -39,13 +39,13 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkeliminados = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txttel = new System.Windows.Forms.TextBox();
             this.cborol = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtusu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.mskcla = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.msktelf = new System.Windows.Forms.MaskedTextBox();
             this.txtdir = new System.Windows.Forms.TextBox();
             this.txtape = new System.Windows.Forms.TextBox();
             this.mskced = new System.Windows.Forms.MaskedTextBox();
@@ -70,6 +70,7 @@
             this.btnmodificar.TabIndex = 57;
             this.btnmodificar.Text = "Modificar";
             this.btnmodificar.UseVisualStyleBackColor = true;
+            this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
             // 
             // btndesactivar
             // 
@@ -106,6 +107,7 @@
             this.dgvcuenta.ReadOnly = true;
             this.dgvcuenta.Size = new System.Drawing.Size(555, 254);
             this.dgvcuenta.TabIndex = 54;
+            this.dgvcuenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcuenta_CellClick);
             // 
             // Column0
             // 
@@ -154,13 +156,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txttel);
             this.groupBox2.Controls.Add(this.cborol);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtusu);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.mskcla);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.msktelf);
             this.groupBox2.Controls.Add(this.txtdir);
             this.groupBox2.Controls.Add(this.txtape);
             this.groupBox2.Controls.Add(this.mskced);
@@ -172,12 +174,20 @@
             this.groupBox2.Controls.Add(this.txtnom);
             this.groupBox2.Controls.Add(this.label35);
             this.groupBox2.Controls.Add(this.label36);
+            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(564, 216);
             this.groupBox2.TabIndex = 53;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Usuario";
+            // 
+            // txttel
+            // 
+            this.txttel.Location = new System.Drawing.Point(359, 71);
+            this.txttel.Name = "txttel";
+            this.txttel.Size = new System.Drawing.Size(100, 20);
+            this.txttel.TabIndex = 5;
             // 
             // cborol
             // 
@@ -228,14 +238,6 @@
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 33;
             this.label1.Text = "Clave";
-            // 
-            // msktelf
-            // 
-            this.msktelf.Location = new System.Drawing.Point(359, 71);
-            this.msktelf.Mask = "000-000-0000";
-            this.msktelf.Name = "msktelf";
-            this.msktelf.Size = new System.Drawing.Size(100, 20);
-            this.msktelf.TabIndex = 5;
             // 
             // txtdir
             // 
@@ -376,7 +378,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.MaskedTextBox mskcla;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox msktelf;
         private System.Windows.Forms.TextBox txtdir;
         private System.Windows.Forms.TextBox txtape;
         private System.Windows.Forms.MaskedTextBox mskced;
@@ -389,14 +390,15 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Button btnnuevo;
+        private System.Windows.Forms.TextBox txtusu;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cborol;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.TextBox txtusu;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cborol;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txttel;
     }
 }

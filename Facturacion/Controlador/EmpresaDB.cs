@@ -36,8 +36,8 @@ namespace Facturacion.Controlador
             int resp;
             try
             {
-                string comandoSql = "Insert Empresa Values ('" + emp.idEmpresa + "','" + emp.nomemp + "','" + emp.diremp + "','" + emp.telemp + "','" + emp.estemp + "')";
-                //string comandoSql = "Insert empresa set nombre_empresa='" + emp.NombreEmpresa + "', direccion='" + emp.Direccion + "', pais='" + emp.Pais + "', telefono='" + emp.Telefono + "'";
+                // string sqlcad = "Insert Empresa Values ('" + emp.NombreEmpresa + "','" + emp.Direccion+ "','" + emp.Pais + "','" + emp.Telefono + "')";
+                string comandoSql = "Insert empresa set nom_emp='" + emp.nomemp + "', dir_emp='" + emp.diremp + "', tel_emp='" + emp.telemp + "', est_emp='" + emp.estemp + "'";
 
                 cmd = new MySqlCommand(comandoSql, cn);
                 cmd.CommandType = CommandType.Text;
@@ -59,7 +59,35 @@ namespace Facturacion.Controlador
             emp = null;
             return resp;
         }
-        public List<Empresa> TraeEmpresas(string est)
+        public int ActualizaEmpresa(Empresa emp)
+        {
+            MySqlCommand cmd;
+            MySqlConnection cn = con.GetConnection();
+            int resp;
+            try
+            {
+
+                string sqlcad = "Update empresa set nom_emp='" + emp.nomemp + "',dir_emp='" + emp.diremp + "',tel_emp='" + emp.telemp + "',est_emp='" + emp.estemp +  "' WHERE idEmpresa='" + emp.idEmpresa + "'";
+                cmd = new MySqlCommand(sqlcad, cn);
+                cmd.CommandType = CommandType.Text;
+                cn.Open();
+                resp = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            cn.Close();
+            cmd = null;
+            return resp;
+        }
+        public List<Empresa> TraeEmpresas()
         {
             EmpresaDB emp = null;
             List<Empresa> Listaempresa = new List<Empresa>();
@@ -67,7 +95,7 @@ namespace Facturacion.Controlador
             MySqlConnection cn = con.GetConnection();
             try
             {
-                string sqlcad = "Select * from empresa where est_emp='" + est + "' order by nom_emp";
+                string sqlcad = "Select * from empresa  order by nom_emp";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
@@ -75,11 +103,12 @@ namespace Facturacion.Controlador
                 while (dr.Read())
                 {
                     emp = new EmpresaDB();
-                    emp.getEmpresa().idEmpresa = dr[0].ToString();
+                    emp.getEmpresa().idEmpresa = int.Parse(dr[0].ToString());
                     emp.getEmpresa().nomemp = dr[1].ToString();
                     emp.getEmpresa().diremp = dr[2].ToString();
                     emp.getEmpresa().telemp = dr[3].ToString();
                     emp.getEmpresa().estemp = dr[4].ToString();
+
                     Listaempresa.Add(emp.getEmpresa());
                 }
                 dr.Close();
@@ -98,68 +127,15 @@ namespace Facturacion.Controlador
             cmd = null;
             return Listaempresa;
         }
-        public int ActivarEmpresa(string ruc)
-        {
-            MySqlCommand cmd;
-            MySqlConnection cn = con.GetConnection();
-            int resp = 0;
-            try
-            {
-                string sqlcad = "Update empresa set est_emp='A' WHERE idEmpresa='" + ruc + "'";
-                cmd = new MySqlCommand(sqlcad, cn);
-                cmd.CommandType = CommandType.Text;
-                cn.Open();
-                resp = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                resp = 0;
-                throw ex;
-            }
-            catch (Exception ex)
-            {
-                resp = 0;
-                throw ex;
-            }
-            cn.Close();
-            cmd = null;
-            return resp;
-        }
-        public int DesactivarEmpresa(string ruc)
-        {
-            MySqlCommand cmd;
-            MySqlConnection cn = con.GetConnection();
-            int resp = 0;
-            try
-            {
-                string sqlcad = "Update empresa set est_emp='P' WHERE idEmpresa='" + ruc + "'";
-                cmd = new MySqlCommand(sqlcad, cn);
-                cmd.CommandType = CommandType.Text;
-                cn.Open();
-                resp = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                resp = 0;
-                throw ex;
-            }
-            catch (Exception ex)
-            {
-                resp = 0;
-                throw ex;
-            }
-            cn.Close();
-            cmd = null;
-            return resp;
-        }
-        public Empresa TraeEmpresa(string ruc)
+
+        public Empresa TraeEmpresa(string ced)
         {
             EmpresaDB emp = null;
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
             try
             {
-                string sqlcad = "Select * from empresa Where idEmpresa='" + ruc + "'";
+                string sqlcad = "Select * from empresa Where idEmpresa='" + ced + "'";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
@@ -167,12 +143,12 @@ namespace Facturacion.Controlador
                 while (dr.Read())
                 {
                     emp = new EmpresaDB();
-                    emp.getEmpresa().idEmpresa = dr[0].ToString();
+                    emp.getEmpresa().idEmpresa = int.Parse(dr[0].ToString());
                     emp.getEmpresa().nomemp = dr[1].ToString();
                     emp.getEmpresa().diremp = dr[2].ToString();
                     emp.getEmpresa().telemp = dr[3].ToString();
                     emp.getEmpresa().estemp = dr[4].ToString();
-    
+
                 }
                 dr.Close();
             }
@@ -189,34 +165,6 @@ namespace Facturacion.Controlador
             cn.Close();
             cmd = null;
             return emp.getEmpresa();
-        }
-        public int ActualizaEmpreza(Empresa per)
-        {
-            MySqlCommand cmd;
-            MySqlConnection cn = con.GetConnection();
-            int resp;
-            try
-            {
-
-                string sqlcad = "Update empresa set nom_emp='" + per.nomemp + "',dir_emp='" + per.diremp + "',tel_emp='" + per.telemp + "',est_emp='" + per.estemp + "' WHERE idEmpresa='" + per.idEmpresa + "'";
-                cmd = new MySqlCommand(sqlcad, cn);
-                cmd.CommandType = CommandType.Text;
-                cn.Open();
-                resp = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                resp = 0;
-                throw ex;
-            }
-            catch (Exception ex)
-            {
-                resp = 0;
-                throw ex;
-            }
-            cn.Close();
-            cmd = null;
-            return resp;
         }
     }
 }

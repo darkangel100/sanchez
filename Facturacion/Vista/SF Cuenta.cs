@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Facturacion.Controlador;
-using Facturacion.Modelo;
+
 
 namespace Facturacion.Vista
 {
@@ -21,10 +21,17 @@ namespace Facturacion.Vista
         string num;
         int aux_idpercuen;
         int fila = -1;
+        #region
+        #endregion
+        //load de la ventana
+        #region
         private void SF_Cuenta_Load(object sender, EventArgs e)
         {
             llenaRol(cborol);
+            llenausuario("A");
         }
+        #endregion    
+        //llena el rol en el combobox
         #region
         private void llenaRol(ComboBox cbo)//Llena combobox de roles
         {
@@ -36,7 +43,7 @@ namespace Facturacion.Vista
                 {
                     MessageBox.Show("No existen de Usuarios", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                cborol.DisplayMember = "nom_rol";
+                cborol.DisplayMember = "nomrol";
                 cborol.ValueMember = "idRol";
                 cbo.DataSource = objC.getRol().ListaRol;
             }
@@ -59,6 +66,7 @@ namespace Facturacion.Vista
         #endregion
         //boton guardar
         #region
+
         private void btnguardar_Click(object sender, EventArgs e)
         {
             PersonaDB objp = new PersonaDB();
@@ -77,17 +85,14 @@ namespace Facturacion.Vista
             }
             if (estado == "N")
             {
-
-
                 Adiciona();
-
-
             }
-            llenaUsuario("A");
-            //if (estado == "E")
-            //{
-            //    editar();
-            //}
+           
+            if (estado == "E")
+            {
+                editar();
+            }
+            llenausuario("A");
             //Utiles.limpiar(panel1.Controls);
             //indice = 0;
             //tc1.SelectTab(indice);
@@ -98,23 +103,22 @@ namespace Facturacion.Vista
             {
                 int resp;
                 int resp2;
-                PersonaDB objU = new PersonaDB();
                 RolDB rol = new RolDB();
+                PersonaDB objU = new PersonaDB();
+                llenaUsu(objU);
                 CuentaDB objC = new CuentaDB();
-                llenaPersona(objU);
                 llenaCuenta(objC);
                 resp = objU.InsertaPersona(objU.getPersona());
-                resp2 = objC.ingresacuenta(objC.getCuenta());
+                resp2 = objC.llenacuenta(objC.getCuenta());
                 if (resp == 0 || resp2 == 0)
                 {
-                    MessageBox.Show("No se ingreso datos de Usuario", "Ventas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se ingreso datos en la Cuenta", "Ventas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 if (resp == 1 && resp2 == 1)
                 {
-                    MessageBox.Show("Usuario Ingresado", "Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MessageBox.Show("Cuenta Ingresado", "Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     estado = "";
-                    llenaUsuario("A");
+                   
                     Util.limpiar(groupBox2.Controls);
                 }
             }
@@ -124,13 +128,13 @@ namespace Facturacion.Vista
             }
         }
 
-        private PersonaDB llenaPersona(PersonaDB lper)
+        private PersonaDB llenaUsu(PersonaDB lper)
         {
             lper.getPersona().cedper = mskced.Text.Trim();
-            lper.getPersona().nomper = txtnom.Text.Trim();
             lper.getPersona().apeper = txtape.Text.Trim();
+            lper.getPersona().nomper = txtnom.Text.Trim();
             lper.getPersona().dirper = txtdir.Text.Trim();
-            lper.getPersona().telper = msktelf.Text.Trim();
+            lper.getPersona().telper = txttel.Text.Trim();
             if (cborol.SelectedIndex == 0)
             {
                 lper.getPersona().idrol = lper.traeIdRol("vendedor");
@@ -138,7 +142,7 @@ namespace Facturacion.Vista
             }
             else
             {
-                lper.getPersona().idrol = lper.traeIdRol("administrador");
+                lper.getPersona().idrol = lper.traeIdRol("gerente");
 
             }
             lper.getPersona().estper = "A";
@@ -154,28 +158,32 @@ namespace Facturacion.Vista
             lcue.getCuenta().estcuen = "A";
             return lcue;
         }
-        public void llenaUsuario(string est)
+      
+        #endregion
+        //metodo `para cargar los datos los datos guardados en la base de datos en el la tabla
+        #region
+        public void llenausuario(string est)
         {
             try
             {
                 dgvcuenta.Rows.Clear();
-                UsuarioDB objC = new UsuarioDB();
-                objC.getUsuario().ListaPersonas = objC.Traeusuarios(est);
-                if (objC.getUsuario().ListaPersonas.Count == 0)
+                UsuarioDB objU = new UsuarioDB();
+                objU.getUsuario().ListaPersonas = objU.TraeUsuarios(est);
+                if (objU.getUsuario().ListaPersonas.Count == 0)
                 {
-                    MessageBox.Show("No existen Clientes Ingresados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("No existen registros de usuarios", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
                     fila = 0;
-                    for (int i = 0; i < objC.getUsuario().ListaPersonas.Count; i++)
+                    for (int i = 0; i < objU.getUsuario().ListaPersonas.Count; i++)
                     {
                         dgvcuenta.Rows.Add(1);
-                        dgvcuenta.Rows[i].Cells[0].Value = objC.getUsuario().ListaPersonas[i].cedper;
-                        dgvcuenta.Rows[i].Cells[1].Value = objC.getUsuario().ListaPersonas[i].Nombre;
-                        dgvcuenta.Rows[i].Cells[2].Value = objC.getUsuario().ListaPersonas[i].dirper;
-                        dgvcuenta.Rows[i].Cells[3].Value = objC.getUsuario().ListaPersonas[i].telper;
-                        dgvcuenta.Rows[i].Cells[4].Value = objC.getUsuario().ListaPersonas[i].estper;
+                        dgvcuenta.Rows[i].Cells[0].Value = objU.getUsuario().ListaPersonas[i].cedper;
+                        dgvcuenta.Rows[i].Cells[1].Value = objU.getUsuario().ListaPersonas[i].Nombre;
+                        dgvcuenta.Rows[i].Cells[2].Value = objU.getUsuario().ListaPersonas[i].dirper;
+                        dgvcuenta.Rows[i].Cells[3].Value = objU.getUsuario().ListaPersonas[i].telper;
+                        dgvcuenta.Rows[i].Cells[4].Value = objU.getUsuario().ListaPersonas[i].estper;
 
                     }
                 }
@@ -202,8 +210,86 @@ namespace Facturacion.Vista
             
         }
 
-      
-        
-       
+       //boton modificar
+        #region
+        private void btnmodificar_Click(object sender, EventArgs e)
+        {
+            modificar();
+            groupBox2.Enabled = true;
+        }
+        //metodo para llenar los los textbox y maskedbox con los datos de persona y cuenta para ser modificados
+        #region
+        private void modificar()
+        {
+            try
+            {
+                PersonaDB objP = new PersonaDB();
+                UsuarioDB objU = new UsuarioDB();
+                CuentaDB objC = new CuentaDB();
+                objP.setPersona(objU.TraeUsuario(dgvcuenta.Rows[fila].Cells[0].Value.ToString()));
+                objC.setCuenta(objC.Traecuenta());
+                if (objU.getUsuario().cedper == "")
+                {
+                    MessageBox.Show("No existe registro del Usuario", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    mskced.Text = objP.getPersona().cedper;
+                    txtape.Text = objP.getPersona().apeper;
+                    txtnom.Text = objP.getPersona().nomper;
+                    txtdir.Text = objP.getPersona().dirper;
+                    txttel.Text = objP.getPersona().telper;
+                    mskcla.Text = objC.getCuenta().Clave;
+                    txtusu.Text = objC.getCuenta().nomcuen;
+                    estado = "E";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al presentar los datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //metodo para editar los datos 
+        #endregion
+        private void editar()
+        {
+            try
+            {
+                PersonaDB objB = new PersonaDB();
+                CuentaDB objC = new CuentaDB();
+                int resp;
+                int resp1 = 0;
+                objB.getPersona().cedper = mskced.Text;
+                objC.getCuenta().idperCuen = aux_idpercuen;
+                llenaUsu(objB);
+                llenaCuenta(objC);
+                resp = objB.ActualizaPersona(objB.getPersona());
+                resp1 = objC.ActualizaCuenta(objC.getCuenta());
+
+                if ((resp == 0) || (resp1 == 0))
+                {
+                    MessageBox.Show("No se modifico datos del Usuario", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if (resp == 1 && resp1 == 1)
+                {
+                    MessageBox.Show("Usuario Modificado", "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    estado = "";
+                    llenausuario("A");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Ingresar Datos," + ex.Message, "Tienda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
+        private void dgvcuenta_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            fila = dgvcuenta.CurrentRow.Index;
+        }
+
+
+
     }
 }

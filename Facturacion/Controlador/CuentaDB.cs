@@ -28,40 +28,9 @@ namespace Facturacion.Controlador
         public Cuenta iniciarSesion(string user, string passw)
         {
             Cuenta c = null;
-
             return c;
-        }
-        public int ingresacuenta(Cuenta cuen)
-        {
-            int resp;
-            MySqlCommand cmd;
-            MySqlConnection cnn = con.GetConnection();
-            try
-            {
-
-                string comandoSql = "Insert cuenta set idPersona='" + cuen.idperCuen + "', nom_cuen='" + cuen.nomcuen + "', clave='" + cuen.Clave + "',est_cuen='" + cuen.estcuen + "'";
-
-                cmd = new MySqlCommand(comandoSql, cnn);
-                cmd.CommandType = CommandType.Text;
-                cnn.Open();
-                resp = cmd.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                resp = 0;
-                throw ex;
-            }
-            catch (Exception ex)
-            {
-                resp = 0;
-                throw ex;
-            }
-            cmd = null;
-            cnn.Close();
-            return resp;
 
         }
-
         public int cuentaE()
         {
             MySqlCommand cmd;
@@ -109,14 +78,14 @@ namespace Facturacion.Controlador
             cmd = null;
             return per.getCuenta();
         }
-        public Cuenta Traecuenta(string ced)
+        public Cuenta Traecuenta()
         {
             CuentaDB per = null;
             MySqlCommand cmd;
             MySqlConnection cn = con.GetConnection();
             try
             {
-                string sqlcad = "Select * from cuenta Where idPersona='" + ced + "'";
+                string sqlcad = "Select * from cuenta Where idCuenta order by nom_cuen";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cmd.CommandType = CommandType.Text;
                 cn.Open();
@@ -145,6 +114,37 @@ namespace Facturacion.Controlador
             cmd = null;
             return per.getCuenta();
         }
+
+        public int ingresacuenta(Cuenta cuen)
+        {
+            int resp;
+            MySqlCommand cmd;
+            MySqlConnection cnn = con.GetConnection();
+            try
+            {
+                //   
+                string comandoSql = "Insert cuenta set idPersona='" + cuen.Persona.idper + "', nom_cuen='" + cuen.nomcuen + "', clave='" + cuen.Clave + "'";
+
+                cmd = new MySqlCommand(comandoSql, cnn);
+                cmd.CommandType = CommandType.Text;
+                cnn.Open();
+                resp = cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                resp = 0;
+                throw ex;
+            }
+            cmd = null;
+            cnn.Close();
+            return resp;
+
+        }
         public int llenacuenta(Cuenta cuen)
         {
 
@@ -153,7 +153,7 @@ namespace Facturacion.Controlador
             int resp;
             try
             {
-                string sqlcad = "Insert cuenta set idPersona='" + cuen.Persona.idper + "', nom_cuen='" + cuen.nomcuen + "', clave='" + cuen.Clave + "',est_cuen='" + cuen.estcuen + "'";
+                string sqlcad = "Insert cuenta set idPersona='" + cuen.idperCuen + "', nom_cuen='" + cuen.nomcuen + "', clave='" + cuen.Clave + "',est_cuen='" + cuen.estcuen + "'";
                 cmd = new MySqlCommand(sqlcad, cn);
                 cn.Open();
                 resp = cmd.ExecuteNonQuery();
@@ -199,6 +199,44 @@ namespace Facturacion.Controlador
             cn.Close();
             cmd = null;
             return resp;
+        }
+        public List<Cuenta> TraeCuentas(string est)
+        {
+            CuentaDB per = null;
+            List<Cuenta> Listacue = new List<Cuenta>();
+            MySqlCommand cmd;
+            MySqlConnection cn = con.GetConnection();
+            try
+            {
+                string sqlcad = "Select * from cuenta Where est_cuen='" + est + "' order by idPersona";
+                cmd = new MySqlCommand(sqlcad, cn);
+                cmd.CommandType = CommandType.Text;
+                cn.Open();
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    per = new CuentaDB();
+                    per.getCuenta().idcuenta = int.Parse(dr[0].ToString());
+                    per.getCuenta().idperCuen = int.Parse(dr[1].ToString());
+                    per.getCuenta().nomcuen = dr[2].ToString();
+                    per.getCuenta().Clave = dr[3].ToString();
+                    per.getCuenta().estcuen = dr[4].ToString();
+                }
+                dr.Close();
+            }
+            catch (MySqlException ex)
+            {
+                per = null;
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                per = null;
+                throw ex;
+            }
+            cn.Close();
+            cmd = null;
+            return Listacue;
         }
     }
 }

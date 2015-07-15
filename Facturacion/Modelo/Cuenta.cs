@@ -61,9 +61,15 @@ namespace Facturacion.Modelo
             set { id_perCuen = value; }
         }
 
-        private List<Cuenta> listacuentas = new List<Cuenta>();
 
-       
+        private List<Cuenta> lista_cuentas= new List<Cuenta>();
+
+        public List<Cuenta> listaCuentas
+        {
+            get { return lista_cuentas; }
+            set { lista_cuentas = value; }
+        }
+        
 
 
         

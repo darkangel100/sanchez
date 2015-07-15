@@ -57,7 +57,7 @@
     <Compile Include="Controlador\PersonaDB.cs" />
     <Compile Include="Controlador\ProductoDB.cs" />
     <Compile Include="Controlador\ProveedorDB.cs" />
-    <Compile Include="Controlador\RolDB.cs" />
+    <Compile Include="Modelo\RolDB.cs" />
     <Compile Include="Controlador\UsuarioDB.cs" />
     <Compile Include="Controlador\Util.cs" />
     <Compile Include="Modelo\Categoria.cs" />

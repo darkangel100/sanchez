@@ -7,9 +7,10 @@ namespace Facturacion.Modelo
 {
     class Empresa
     {
-        private string id_Empesa;
+        
+        private int id_Empesa;
 
-        public string idEmpresa
+        public int idEmpresa
         {
             get { return id_Empesa; }
             set { id_Empesa = value; }

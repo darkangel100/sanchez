@@ -54,12 +54,16 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnnuevo = new System.Windows.Forms.Button();
             this.chkeliminados = new System.Windows.Forms.CheckBox();
+            this.txtced = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcontacto)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtced);
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.cboemp);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.mskruc);
@@ -84,7 +88,7 @@
             // cboemp
             // 
             this.cboemp.FormattingEnabled = true;
-            this.cboemp.Location = new System.Drawing.Point(355, 55);
+            this.cboemp.Location = new System.Drawing.Point(363, 91);
             this.cboemp.Name = "cboemp";
             this.cboemp.Size = new System.Drawing.Size(121, 21);
             this.cboemp.TabIndex = 96;
@@ -92,7 +96,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(282, 58);
+            this.label1.Location = new System.Drawing.Point(290, 94);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 95;
@@ -107,14 +111,14 @@
             // 
             // msktelf
             // 
-            this.msktelf.Location = new System.Drawing.Point(355, 22);
+            this.msktelf.Location = new System.Drawing.Point(363, 58);
             this.msktelf.Name = "msktelf";
             this.msktelf.Size = new System.Drawing.Size(100, 20);
             this.msktelf.TabIndex = 93;
             // 
             // button29
             // 
-            this.button29.Location = new System.Drawing.Point(440, 100);
+            this.button29.Location = new System.Drawing.Point(444, 125);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(75, 23);
             this.button29.TabIndex = 71;
@@ -123,7 +127,7 @@
             // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(359, 100);
+            this.btnguardar.Location = new System.Drawing.Point(363, 125);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(75, 23);
             this.btnguardar.TabIndex = 70;
@@ -143,7 +147,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(281, 25);
+            this.label40.Location = new System.Drawing.Point(289, 61);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(49, 13);
             this.label40.TabIndex = 61;
@@ -151,21 +155,21 @@
             // 
             // txtape
             // 
-            this.txtape.Location = new System.Drawing.Point(77, 88);
+            this.txtape.Location = new System.Drawing.Point(77, 125);
             this.txtape.Name = "txtape";
             this.txtape.Size = new System.Drawing.Size(143, 20);
             this.txtape.TabIndex = 68;
             // 
             // txtdir
             // 
-            this.txtdir.Location = new System.Drawing.Point(77, 122);
+            this.txtdir.Location = new System.Drawing.Point(363, 22);
             this.txtdir.Name = "txtdir";
             this.txtdir.Size = new System.Drawing.Size(135, 20);
             this.txtdir.TabIndex = 66;
             // 
             // txtnom
             // 
-            this.txtnom.Location = new System.Drawing.Point(77, 55);
+            this.txtnom.Location = new System.Drawing.Point(77, 92);
             this.txtnom.Name = "txtnom";
             this.txtnom.Size = new System.Drawing.Size(143, 20);
             this.txtnom.TabIndex = 67;
@@ -173,7 +177,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(6, 125);
+            this.label42.Location = new System.Drawing.Point(292, 25);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(52, 13);
             this.label42.TabIndex = 64;
@@ -182,7 +186,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(6, 91);
+            this.label43.Location = new System.Drawing.Point(6, 128);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(44, 13);
             this.label43.TabIndex = 63;
@@ -191,7 +195,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(6, 58);
+            this.label44.Location = new System.Drawing.Point(6, 95);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(44, 13);
             this.label44.TabIndex = 62;
@@ -291,6 +295,22 @@
             this.chkeliminados.Text = "Mostrar clientes eliminados";
             this.chkeliminados.UseVisualStyleBackColor = true;
             // 
+            // txtced
+            // 
+            this.txtced.Location = new System.Drawing.Point(77, 58);
+            this.txtced.Name = "txtced";
+            this.txtced.Size = new System.Drawing.Size(135, 20);
+            this.txtced.TabIndex = 98;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 97;
+            this.label2.Text = "Cedula";
+            // 
             // SF_Proveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,6 +325,7 @@
             this.Controls.Add(this.btnactivar);
             this.Name = "SF_Proveedor";
             this.Text = "SF_Proveedor";
+            this.Load += new System.EventHandler(this.SF_Proveedor_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcontacto)).EndInit();
@@ -341,6 +362,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button btnnuevo;
         private System.Windows.Forms.CheckBox chkeliminados;
+        private System.Windows.Forms.TextBox txtced;
+        private System.Windows.Forms.Label label2;
 
     }
 }

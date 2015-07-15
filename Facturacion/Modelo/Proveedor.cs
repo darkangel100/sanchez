@@ -8,17 +8,17 @@ namespace Facturacion.Modelo
     class Proveedor:Persona
     {
        
-        private string id_Proveedor;
+        private string Ruc_Proveedor;
 
-        public string idProveedor
+        public string RucProveedor
         {
-            get { return idProveedor; }
-            set { idProveedor = value; }
+            get { return Ruc_Proveedor; }
+            set { Ruc_Proveedor = value; }
         }
 
-        private string id_empreProve;
+        private int id_empreProve;
 
-        public string idempreProvee
+        public int idempreProvee
         {
             get { return id_empreProve; }
             set { id_empreProve = value; }

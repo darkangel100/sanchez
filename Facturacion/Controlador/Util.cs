@@ -47,7 +47,7 @@ namespace Facturacion.Controlador
             return fec;
         }
         #endregion
-        //validacion de numeros
+        //validacion de numeros y pasar el foco a un textbox
         #region
         public void validarnum(TextBox tx, KeyPressEventArgs e, TextBox tx1)
         {
@@ -72,6 +72,9 @@ namespace Facturacion.Controlador
 
             }
         }
+        #endregion
+        //validar numero y pasar el foco aun boton
+        #region
         public void validarnum(TextBox tx, KeyPressEventArgs e, Button btn)
         {
             char letra = e.KeyChar;
@@ -96,7 +99,7 @@ namespace Facturacion.Controlador
             }
         }
         #endregion
-        //validacion de letras
+        //validacion de letras y pasar el foco a un textbox
         #region
         public void validarletras(TextBox tx, KeyPressEventArgs e, TextBox tx1)
         {
